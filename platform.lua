@@ -124,5 +124,4 @@ function M.load_uv()
     
     return uv, is_windows
 end
-
-return M
+return M.load_uv()

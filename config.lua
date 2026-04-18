@@ -1,10 +1,16 @@
+-- config.lua
+-- 系统配置文件
+
 local config = {
-    log = {
-        level = "INFO",  -- DEBUG, INFO, WARN, ERROR
-        file = "gateway.log",
-        console = true
+    -- 系统配置
+    system = {
+        name = "Router Gateway",
+        version = "1.0.0",
+        log_level = "info",
+        max_concurrent_connections = 100,
+        default_timeout = 5.0
     },
-    
+
     -- 接口配置
     interfaces = {
         -- TCP/IP 接口（子网1）
@@ -17,6 +23,7 @@ local config = {
             subnet = "192.168.1.0/24",
             enabled = true
         },
+
         -- TCP/IP 接口（子网2）
         {
             name = "tcp_subnet2",
@@ -27,6 +34,7 @@ local config = {
             subnet = "192.168.2.0/24",
             enabled = true
         },
+
         -- TCP/IP 接口（子网3）
         {
             name = "tcp_subnet3",
@@ -37,7 +45,7 @@ local config = {
             subnet = "192.168.3.0/24",
             enabled = false
         },
-        
+
         -- RS485 接口
         {
             name = "rs485_sensor",
@@ -49,7 +57,7 @@ local config = {
             timeout = 1.0,
             enabled = true
         },
-        
+
         -- BLE 接口
         {
             name = "ble_device",
@@ -59,7 +67,7 @@ local config = {
             char_uuid = "00002a29-0000-1000-8000-00805f9b34fb",
             enabled = false
         },
-        
+
         -- 自定义接口
         {
             name = "custom_interface",
@@ -84,39 +92,57 @@ local config = {
                     return true
                 end,
                 send = function(self, data, timeout)
-                    print("Custom interface sending:", data)
+                    print("Custom interface sending:       " .. data)
                     return true
                 end,
                 receive = function(self, timeout)
                     -- 模拟接收数据
-                    return "CUSTOM:Hello from custom interface"
+                    return "Hello from custom interface"
+                end
+            }
+        },
+
+        -- PLC 接口
+        {
+            name = "plc_device",
+            type = "plc",
+            address = "localhost",
+            port = 8888,
+            protocol = "plc",
+            timeout = 5,
+            enabled = true,
+            handler = {
+                connect = function(self)
+                    print("PLC interface connected")
+                    return true
+                end,
+                disconnect = function(self)
+                    print("PLC interface disconnected")
+                    return true
+                end,
+                send = function(self, data, timeout)
+                    print("PLC interface sending:         " .. data)
+                    return true
+                end,
+                receive = function(self, timeout)
+                    -- 模拟接收数据
+                    return "Hello from PLC interface"
                 end
             }
         }
     },
-    
-    -- 路由规则
+
+    -- 路由规则配置
     routing_rules = {
         {
-            name = "rule_subnet1_to_subnet2",
+            name = "rule_tcp_subnet1",
             device_id = "device_001",
             source_subnet = "192.168.1.0/24",
             target_subnet = "192.168.2.0/24",
-            interfaces = {"tcp_subnet1", "tcp_subnet2", "rs485_sensor"},
-            timeout = 5.0,
-            retry_count = 3,
+            interfaces = {"tcp_subnet1", "tcp_subnet2"},
+            timeout = 10.0,
+            retry_count = 2,
             priority = 100,
-            enabled = true
-        },
-        {
-            name = "rule_subnet2_to_subnet3",
-            device_id = "device_002",
-            source_subnet = "192.168.2.0/24",
-            target_subnet = "192.168.3.0/24",
-            interfaces = {"tcp_subnet2", "tcp_subnet3", "ble_device"},
-            timeout = 5.0,
-            retry_count = 3,
-            priority = 90,
             enabled = true
         },
         {
@@ -140,148 +166,84 @@ local config = {
             retry_count = 2,
             priority = 75,
             enabled = false
+        },
+        {
+            name = "rule_plc",
+            device_id = "device_005",
+            source_subnet = "0.0.0.0/0",
+            target_subnet = "0.0.0.0/0",
+            interfaces = {"plc_device", "tcp_subnet1"},
+            timeout = 10.0,
+            retry_count = 2,
+            priority = 80,
+            enabled = true
         }
     },
-    
+
     -- 适配器配置
     adapters = {
         mqtt = {
             enabled = true,
-            broker = "192.168.1.50",
-            port = 1883,
-            client_id = "hybrid_gateway_01"
-        },
-        tcp_protocol = {
-            enabled = true,
-            port = 9999,
-            max_connections = 100
+            broker = "mqtt://test.mosquitto.org",
+            client_id = "router_gateway",
+            username = "",
+            password = "",
+            keepalive = 60,
+            qos = 1,
+            retain = false,
+            topics = {
+                "sensors/#",
+                "devices/#"
+            }
         },
         modbus = {
-            enabled = true,
-            slave_id = 1
+            enabled = false,
+            port = "/dev/ttyUSB0",
+            baudrate = 9600,
+            parity = "N",
+            stopbits = 1,
+            timeout = 1.0
+        },
+        custom_protocol = {
+            enabled = false,
+            protocol = "my_custom_protocol",
+            config = {
+                key = "value"
+            }
         }
     },
-    
-    -- 探测配置
-    probing = {
-        enabled = true,
-        interval = 10,  -- 秒
-        timeout = 2.0,
-        packet_size = 64
+
+    -- 链路质量配置
+    link_metrics = {
+        sample_window = 100,  -- 采样窗口大小
+        timeout_threshold = 5.0,  -- 超时阈值（秒）
+        error_weight = 50,  -- 错误权重（0-100）
+        latency_weight = 50,  -- 延迟权重（0-100）
+        quality_thresholds = {
+            excellent = 0.9,  -- 优秀
+            good = 0.7,       -- 良好
+            fair = 0.5,       -- 一般
+            poor = 0.3        -- 较差
+        }
     },
-    
+
+    -- 路由策略配置
+    routing = {
+        default_strategy = "default",  -- default, quality_based, load_balanced
+        quality_threshold = 0.5,  -- 质量阈值
+        max_hops = 5,  -- 最大跳数
+        probe_interval = 10,  -- 路由探测间隔（秒）
+        probe_timeout = 2.0   -- 探测超时（秒）
+    },
+
     -- 守护进程配置
     daemon = {
-        enabled = true,
-        port = 10000,  -- 守护进程监听端口
-        max_connections = 100,
-        heartbeat_interval = 30,  -- 心跳检测间隔（秒）
-        heartbeat_timeout = 60,  -- 心跳超时时间（秒）
-        max_reconnect_attempts = 5,
-        reconnect_interval = 5  -- 重连间隔（秒）
+        port = 9000,  -- 守护进程端口
+        max_connections = 50,  -- 最大连接数
+        heartbeat_interval = 30,  -- 心跳间隔（秒）
+        device_timeout = 120,  -- 设备超时（秒）
+        log_level = "info"
     }
 }
-
-
--- ============================================
--- 多设备拓扑配置
--- ============================================
-
--- 设备拓扑定义
-local topology = {
-    devices = {
-        {
-            device_id = "A",
-            name = "Gateway Server",
-            is_relay = true,
-            description = "Central hub with TCP, BLE, RS485 support",
-            interfaces = {
-                {
-                    type = "tcp",
-                    port = "8888",
-                    host = "192.168.1.100",
-                    priority = 100,
-                    description = "Primary TCP interface"
-                },
-                {
-                    type = "ble",
-                    port = "00:1A:7D:DA:71:13",
-                    priority = 50,
-                    description = "BLE interface"
-                },
-                {
-                    type = "rs485",
-                    port = "/dev/ttyUSB0",
-                    baudrate = 9600,
-                    priority = 60,
-                    description = "RS485 interface"
-                }
-            }
-        },
-        {
-            device_id = "B",
-            name = "Relay Node",
-            is_relay = true,
-            description = "Intermediate relay for path A->C",
-            interfaces = {
-                {
-                    type = "tcp",
-                    port = "8889",
-                    host = "192.168.1.101",
-                    priority = 100
-                },
-                {
-                    type = "rs485",
-                    port = "/dev/ttyUSB1",
-                    baudrate = 9600,
-                    priority = 60
-                }
-            }
-        },
-        {
-            device_id = "C",
-            name = "Sensor Node",
-            is_relay = false,
-            description = "End device for data collection",
-            interfaces = {
-                {
-                    type = "rs485",
-                    port = "/dev/ttyUSB2",
-                    baudrate = 9600,
-                    priority = 60
-                },
-                {
-                    type = "ble",
-                    port = "00:2A:7D:DA:71:14",
-                    priority = 50
-                }
-            }
-        }
-    }
-}
-
--- 转发路由规则
-local forwarding_rules = {
-    {
-        name = "A_to_C_via_B",
-        src_device = "A",
-        dst_device = "C",
-        path = {"A:tcp:8888", "B:rs485:/dev/ttyUSB1", "C:ble:00:2A:7D:DA:71:14"},
-        priority = 100,
-        enabled = true
-    },
-    {
-        name = "A_to_C_alternative",
-        src_device = "A",
-        dst_device = "C",
-        path = {"A:ble:00:1A:7D:DA:71:13", "B:tcp:192.168.1.101:8889", "C:rs485:/dev/ttyUSB2"},
-        priority = 80,
-        enabled = true
-    }
-}
-
-config.topology = topology
-config.forwarding_rules = forwarding_rules
 
 return config
-

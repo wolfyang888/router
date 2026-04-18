@@ -1,4 +1,5 @@
 -- tests/adapters/test_mqtt_adapter.lua
+local uv, _ = require("platform")
 local json = require("cjson")
 local MQTTAdapter = require("adapters.mqtt_adapter")
 

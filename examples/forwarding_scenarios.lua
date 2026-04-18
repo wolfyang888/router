@@ -1,6 +1,6 @@
 -- examples/forwarding_scenarios.lua
 -- 多设备转发场景演示
-
+require("platform")
 local json = require("cjson")
 local RouterEngine = require("core.router_engine")
 local ProtocolBridge = require("core.protocol_bridge")

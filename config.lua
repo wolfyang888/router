@@ -172,3 +172,103 @@ local config = {
 }
 
 return config
+-- ============================================
+-- 多设备拓扑配置
+-- ============================================
+
+-- 设备拓扑定义
+local topology = {
+    devices = {
+        {
+            device_id = "A",
+            name = "Gateway Server",
+            is_relay = true,
+            description = "Central hub with TCP, BLE, RS485 support",
+            interfaces = {
+                {
+                    type = "tcp",
+                    port = "8888",
+                    host = "192.168.1.100",
+                    priority = 100,
+                    description = "Primary TCP interface"
+                },
+                {
+                    type = "ble",
+                    port = "00:1A:7D:DA:71:13",
+                    priority = 50,
+                    description = "BLE interface"
+                },
+                {
+                    type = "rs485",
+                    port = "/dev/ttyUSB0",
+                    baudrate = 9600,
+                    priority = 60,
+                    description = "RS485 interface"
+                }
+            }
+        },
+        {
+            device_id = "B",
+            name = "Relay Node",
+            is_relay = true,
+            description = "Intermediate relay for path A->C",
+            interfaces = {
+                {
+                    type = "tcp",
+                    port = "8889",
+                    host = "192.168.1.101",
+                    priority = 100
+                },
+                {
+                    type = "rs485",
+                    port = "/dev/ttyUSB1",
+                    baudrate = 9600,
+                    priority = 60
+                }
+            }
+        },
+        {
+            device_id = "C",
+            name = "Sensor Node",
+            is_relay = false,
+            description = "End device for data collection",
+            interfaces = {
+                {
+                    type = "rs485",
+                    port = "/dev/ttyUSB2",
+                    baudrate = 9600,
+                    priority = 60
+                },
+                {
+                    type = "ble",
+                    port = "00:2A:7D:DA:71:14",
+                    priority = 50
+                }
+            }
+        }
+    }
+}
+
+-- 转发路由规则
+local forwarding_rules = {
+    {
+        name = "A_to_C_via_B",
+        src_device = "A",
+        dst_device = "C",
+        path = ["A:tcp:8888", "B:rs485:/dev/ttyUSB1", "C:ble:00:2A:7D:DA:71:14"],
+        priority = 100,
+        enabled = true
+    },
+    {
+        name = "A_to_C_alternative",
+        src_device = "A",
+        dst_device = "C",
+        path = ["A:ble:00:1A:7D:DA:71:13", "B:tcp:192.168.1.101:8889", "C:rs485:/dev/ttyUSB2"],
+        priority = 80,
+        enabled = true
+    }
+}
+
+config.topology = topology
+config.forwarding_rules = forwarding_rules
+

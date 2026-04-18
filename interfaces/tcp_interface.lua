@@ -1,5 +1,22 @@
 -- interfaces/tcp_interface.lua
-local socket = require("socket")
+local socket = nil
+local success, socket_lib = pcall(require, "socket")
+if success then
+    socket = socket_lib
+else
+    -- 当socket库不可用时，使用模拟实现
+    socket = {
+        tcp = function()
+            return {
+                settimeout = function() end,
+                connect = function() return false, "Socket library not available" end,
+                close = function() end,
+                send = function() return false, "Socket library not available" end,
+                receive = function() return nil, "Socket library not available" end
+            }
+        end
+    }
+end
 local BaseInterface = require("interfaces.base_interface")
 
 local TCPInterface = setmetatable({}, BaseInterface)

@@ -17,12 +17,16 @@ function logger.log(level, message)
     local log_msg = string.format("[%s] [%s] %s", timestamp, level, message)
     print(log_msg)
     
-    local config = loadfile("config.lua")()
-    if config and config.log and config.log.file then
-        local file = io.open(config.log.file, "a")
-        if file then
-            file:write(log_msg .. "\n")
-            file:close()
+    local config_path = "config.lua"
+    local config = loadfile(config_path) or loadfile("../" .. config_path) or loadfile("../../" .. config_path)
+    if config then
+        config = config()
+        if config and config.log and config.log.file then
+            local file = io.open(config.log.file, "a")
+            if file then
+                file:write(log_msg .. "\n")
+                file:close()
+            end
         end
     end
 end

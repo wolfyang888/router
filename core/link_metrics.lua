@@ -33,7 +33,7 @@ function LinkMetrics:calculate_quality()
     local total = self.success_count + self.error_count
     if total > 0 then
         local error_rate = self.error_count / total
-        score = score - (error_rate * 30)
+        score = score - (error_rate * 50)  -- 增加错误率的权重
     end
     
     score = math.max(0, math.min(100, score))

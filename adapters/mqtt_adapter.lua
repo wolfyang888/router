@@ -1,5 +1,19 @@
 -- adapters/mqtt_adapter.lua
-local json = require("cjson")
+local json = nil
+local success, json_lib = pcall(require, "cjson")
+if success then
+    json = json_lib
+else
+    -- 当cjson库不可用时，使用简单的序列化方式
+    json = {
+        encode = function(data)
+            return tostring(data)
+        end,
+        decode = function(data)
+            return data
+        end
+    }
+end
 local BaseAdapter = require("adapters.base_adapter")
 
 local MQTTAdapter = setmetatable({}, BaseAdapter)

@@ -7,21 +7,34 @@ local config = {
     
     -- 接口配置
     interfaces = {
-        -- TCP/IP 接口
+        -- TCP/IP 接口（子网1）
         {
-            name = "tcp_main",
+            name = "tcp_subnet1",
             type = "tcp",
             host = "192.168.1.100",
             port = 8888,
             timeout = 10,
+            subnet = "192.168.1.0/24",
             enabled = true
         },
+        -- TCP/IP 接口（子网2）
         {
-            name = "tcp_secondary",
+            name = "tcp_subnet2",
             type = "tcp",
-            host = "192.168.1.101",
+            host = "192.168.2.100",
             port = 8889,
             timeout = 10,
+            subnet = "192.168.2.0/24",
+            enabled = true
+        },
+        -- TCP/IP 接口（子网3）
+        {
+            name = "tcp_subnet3",
+            type = "tcp",
+            host = "192.168.3.100",
+            port = 8890,
+            timeout = 10,
+            subnet = "192.168.3.0/24",
             enabled = false
         },
         
@@ -37,16 +50,6 @@ local config = {
             enabled = true
         },
         
-        -- CAN 接口
-        {
-            name = "can_bus",
-            type = "can",
-            interface = "can0",
-            bitrate = 500000,
-            can_id = 0x001,
-            enabled = false
-        },
-        
         -- BLE 接口
         {
             name = "ble_device",
@@ -55,6 +58,40 @@ local config = {
             service_uuid = "0000180a-0000-1000-8000-00805f9b34fb",
             char_uuid = "00002a29-0000-1000-8000-00805f9b34fb",
             enabled = false
+        },
+        
+        -- 自定义接口
+        {
+            name = "custom_interface",
+            type = "custom",
+            protocol = "my_custom_protocol",
+            enabled = false,
+            protocol_config = {
+                serializer = function(message)
+                    return "CUSTOM:" .. tostring(message)
+                end,
+                deserializer = function(data)
+                    return data:sub(8) -- 去掉 "CUSTOM:" 前缀
+                end
+            },
+            handler = {
+                connect = function(self)
+                    print("Custom interface connected")
+                    return true
+                end,
+                disconnect = function(self)
+                    print("Custom interface disconnected")
+                    return true
+                end,
+                send = function(self, data, timeout)
+                    print("Custom interface sending:", data)
+                    return true
+                end,
+                receive = function(self, timeout)
+                    -- 模拟接收数据
+                    return "CUSTOM:Hello from custom interface"
+                end
+            }
         }
     },
     
@@ -65,29 +102,40 @@ local config = {
             device_id = "device_001",
             source_subnet = "192.168.1.0/24",
             target_subnet = "192.168.2.0/24",
-            interfaces = {"tcp_main", "rs485_sensor"},
+            interfaces = {"tcp_subnet1", "tcp_subnet2", "rs485_sensor"},
             timeout = 5.0,
             retry_count = 3,
             priority = 100,
             enabled = true
         },
         {
-            name = "rule_rs485_fallback",
+            name = "rule_subnet2_to_subnet3",
             device_id = "device_002",
+            source_subnet = "192.168.2.0/24",
+            target_subnet = "192.168.3.0/24",
+            interfaces = {"tcp_subnet2", "tcp_subnet3", "ble_device"},
+            timeout = 5.0,
+            retry_count = 3,
+            priority = 90,
+            enabled = true
+        },
+        {
+            name = "rule_rs485_fallback",
+            device_id = "device_003",
             source_subnet = "0.0.0.0/0",
             target_subnet = "0.0.0.0/0",
-            interfaces = {"rs485_sensor", "tcp_main"},
+            interfaces = {"rs485_sensor", "tcp_subnet1"},
             timeout = 10.0,
             retry_count = 2,
             priority = 50,
             enabled = true
         },
         {
-            name = "rule_ble_primary",
-            device_id = "device_003",
+            name = "rule_custom_interface",
+            device_id = "device_004",
             source_subnet = "0.0.0.0/0",
             target_subnet = "0.0.0.0/0",
-            interfaces = {"ble_device", "tcp_main"},
+            interfaces = {"custom_interface", "tcp_subnet1"},
             timeout = 10.0,
             retry_count = 2,
             priority = 75,

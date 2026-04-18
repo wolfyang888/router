@@ -168,10 +168,21 @@ local config = {
         interval = 10,  -- 秒
         timeout = 2.0,
         packet_size = 64
+    },
+    
+    -- 守护进程配置
+    daemon = {
+        enabled = true,
+        port = 10000,  -- 守护进程监听端口
+        max_connections = 100,
+        heartbeat_interval = 30,  -- 心跳检测间隔（秒）
+        heartbeat_timeout = 60,  -- 心跳超时时间（秒）
+        max_reconnect_attempts = 5,
+        reconnect_interval = 5  -- 重连间隔（秒）
     }
 }
 
-return config
+
 -- ============================================
 -- 多设备拓扑配置
 -- ============================================
@@ -255,7 +266,7 @@ local forwarding_rules = {
         name = "A_to_C_via_B",
         src_device = "A",
         dst_device = "C",
-        path = ["A:tcp:8888", "B:rs485:/dev/ttyUSB1", "C:ble:00:2A:7D:DA:71:14"],
+        path = {"A:tcp:8888", "B:rs485:/dev/ttyUSB1", "C:ble:00:2A:7D:DA:71:14"},
         priority = 100,
         enabled = true
     },
@@ -263,7 +274,7 @@ local forwarding_rules = {
         name = "A_to_C_alternative",
         src_device = "A",
         dst_device = "C",
-        path = ["A:ble:00:1A:7D:DA:71:13", "B:tcp:192.168.1.101:8889", "C:rs485:/dev/ttyUSB2"],
+        path = {"A:ble:00:1A:7D:DA:71:13", "B:tcp:192.168.1.101:8889", "C:rs485:/dev/ttyUSB2"},
         priority = 80,
         enabled = true
     }
@@ -271,4 +282,6 @@ local forwarding_rules = {
 
 config.topology = topology
 config.forwarding_rules = forwarding_rules
+
+return config
 

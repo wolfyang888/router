@@ -1,18 +1,17 @@
 -- interfaces/tcp_interface.lua
-local socket = nil
-local success, socket_lib = pcall(require, "socket")
+local uv = nil
+local success, uv_lib = pcall(require, "uv")
 if success then
-    socket = socket_lib
+    uv = uv_lib
 else
-    -- 当socket库不可用时，使用模拟实现
-    socket = {
-        tcp = function()
+    -- 当uv库不可用时，使用模拟实现
+    uv = {
+        new_tcp = function()
             return {
-                settimeout = function() end,
-                connect = function() return false, "Socket library not available" end,
+                connect = function() return false, "UV library not available" end,
                 close = function() end,
-                send = function() return false, "Socket library not available" end,
-                receive = function() return nil, "Socket library not available" end
+                read_start = function() end,
+                write = function() return false, "UV library not available" end
             }
         end
     }
@@ -35,19 +34,24 @@ function TCPInterface:connect()
     local port = self.config.port or 8888
     local timeout = self.config.timeout or 10
     
-    self.socket = socket.tcp()
-    self.socket:settimeout(timeout)
+    self.socket = uv.new_tcp()
     
-    local success, err = self.socket:connect(host, port)
+    local success, err = self.socket:connect(host, port, function(err)
+        if err then
+            self.status = "error"
+            self.error_msg = err
+        else
+            self.status = "connected"
+        end
+    end)
     
-    if success then
-        self.status = "connected"
-        return true
-    else
+    if not success then
         self.status = "error"
         self.error_msg = err
         return false
     end
+    
+    return true
 end
 
 function TCPInterface:disconnect()
@@ -65,18 +69,20 @@ function TCPInterface:send(data, timeout)
         return false
     end
     
-    timeout = timeout or self.config.timeout or 5
-    self.socket:settimeout(timeout)
+    local success, err = self.socket:write(data, function(err)
+        if err then
+            self.status = "error"
+            self.error_msg = err
+        end
+    end)
     
-    local success, err = self.socket:send(data)
-    
-    if success then
-        return true
-    else
+    if not success then
         self.status = "error"
         self.error_msg = err
         return false
     end
+    
+    return true
 end
 
 function TCPInterface:receive(timeout)
@@ -85,16 +91,21 @@ function TCPInterface:receive(timeout)
         return nil
     end
     
-    timeout = timeout or self.config.timeout or 5
-    self.socket:settimeout(timeout)
+    -- 对于UV库，我们使用异步接收
+    -- 这里简化实现，实际使用时可能需要更复杂的处理
+    self.receive_buffer = ""
     
-    local data, err = self.socket:receive("*a")
+    self.socket:read_start(function(err, data)
+        if err then
+            self.status = "error"
+            self.error_msg = err
+        elseif data then
+            self.receive_buffer = self.receive_buffer .. data
+        end
+    end)
     
-    if data then
-        return data
-    else
-        return nil
-    end
+    -- 由于是异步接收，这里返回空，实际使用时需要通过回调处理
+    return ""
 end
 
 return TCPInterface

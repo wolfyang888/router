@@ -547,7 +547,7 @@ function RouterEngine:forward_to_device(message, src_device, dst_device)
     return false
 end
 
-return RouterEngine
+
 -- ============================================
 -- 多设备支持扩展
 -- ============================================
@@ -725,3 +725,58 @@ function RouterEngine:forward_to_device(message, src_device, dst_device)
     return false
 end
 
+-- 注册设备
+function RouterEngine:register_device(device_id, interfaces)
+    if not self.devices then
+        self.devices = {}
+    end
+    if not self.device_interfaces then
+        self.device_interfaces = {}
+    end
+    
+    self.devices[device_id] = {
+        device_id = device_id,
+        is_relay = true,  -- 默认所有设备都可以作为中继
+        interfaces = interfaces
+    }
+    
+    self.device_interfaces[device_id] = {}
+    
+    for _, iface in ipairs(interfaces or {}) do
+        local addr = device_id .. ":" .. iface.type .. ":" .. (iface.port or "")
+        self.device_interfaces[device_id][iface.type] = {
+            address = addr,
+            config = iface,
+            priority = iface.priority or 50
+        }
+    end
+    
+    logger.info("Device registered: " .. device_id)
+    return true
+end
+
+-- 注销设备
+function RouterEngine:unregister_device(device_id)
+    if self.devices[device_id] then
+        self.devices[device_id] = nil
+        self.device_interfaces[device_id] = nil
+        logger.info("Device unregistered: " .. device_id)
+        return true
+    end
+    return false
+end
+
+-- 获取已注册的设备列表
+function RouterEngine:get_registered_devices()
+    local devices = {}
+    for device_id, device_info in pairs(self.devices or {}) do
+        table.insert(devices, {
+            device_id = device_id,
+            interfaces = device_info.interfaces or {},
+            is_relay = device_info.is_relay
+        })
+    end
+    return devices
+end
+
+return RouterEngine

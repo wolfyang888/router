@@ -1,6 +1,3 @@
--- config.lua - Hybrid Routing Gateway Configuration
-
--- 日志配置
 local config = {
     log = {
         level = "INFO",  -- DEBUG, INFO, WARN, ERROR

@@ -77,6 +77,37 @@ function ProtocolBridge:rs485_ble_bridge()
     }
 end
 
+-- TCP <-> ULC 转换
+function ProtocolBridge:tcp_ulc_bridge()
+    return {
+        tcp_to_ulc = function(data)
+            -- TCP (JSON) -> ULC (Custom)
+            local msg = json.decode(data)
+            local device_id = msg.device_id or "device_001"
+            local payload = msg.payload or ""
+            
+            -- 格式: [ULC:version:msg_id:payload]
+            local version = "1.0"
+            local msg_id = string.format("%08X", math.random(0, 0xFFFFFFFF))
+            return string.format("[ULC:%s:%s:%s]", version, msg_id, payload)
+        end,
+        
+        ulc_to_tcp = function(data)
+            -- ULC (Custom) -> TCP (JSON)
+            local version, msg_id, payload = string.match(data, "%[ULC:(%d+%.%d+):(%x+):(.*)%]")
+            if not version then
+                error("Invalid ULC format")
+            end
+            
+            return json.encode({
+                version = version,
+                message_id = msg_id,
+                payload = payload
+            })
+        end
+    }
+end
+
 -- 执行协议转换
 function ProtocolBridge:convert(data, from_protocol, to_protocol)
     local key = from_protocol .. "_to_" .. to_protocol
@@ -120,6 +151,18 @@ function ProtocolBridge:convert(data, from_protocol, to_protocol)
     if from_protocol == "ble" and to_protocol == "rs485" then
         local bridge = self:rs485_ble_bridge()
         self.converters[key] = bridge.ble_to_rs485
+        return self.converters[key](data)
+    end
+    
+    if from_protocol == "tcp" and to_protocol == "ulc" then
+        local bridge = self:tcp_ulc_bridge()
+        self.converters[key] = bridge.tcp_to_ulc
+        return self.converters[key](data)
+    end
+    
+    if from_protocol == "ulc" and to_protocol == "tcp" then
+        local bridge = self:tcp_ulc_bridge()
+        self.converters[key] = bridge.ulc_to_tcp
         return self.converters[key](data)
     end
     

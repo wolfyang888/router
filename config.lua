@@ -11,6 +11,12 @@ local config = {
         default_timeout = 5.0
     },
 
+    -- 日志配置
+    log = {
+        file = "router.log",  -- 日志文件路径
+        enabled = true       -- 是否启用文件日志
+    },
+
     -- 接口配置
     interfaces = {
         -- TCP/IP 接口（子网1）
@@ -35,72 +41,54 @@ local config = {
             enabled = true
         },
 
-        -- TCP/IP 接口（子网3）
-        {
-            name = "tcp_subnet3",
-            type = "tcp",
-            host = "192.168.3.100",
-            port = 8890,
-            timeout = 10,
-            subnet = "192.168.3.0/24",
-            enabled = false
-        },
+        -- -- TCP/IP 接口（子网3）
+        -- {
+        --     name = "tcp_subnet3",
+        --     type = "tcp",
+        --     host = "192.168.3.100",
+        --     port = 8890,
+        --     timeout = 10,
+        --     subnet = "192.168.3.0/24",
+        --     enabled = false
+        -- },
 
-        -- RS485 接口
-        {
-            name = "rs485_sensor",
-            type = "rs485",
-            port = "/dev/ttyUSB0",
-            baudrate = 9600,
-            parity = "N",
-            stopbits = 1,
-            timeout = 1.0,
-            enabled = true
-        },
+        -- -- RS485 接口
+        -- {
+        --     name = "rs485_sensor",
+        --     type = "rs485",
+        --     port = "/dev/ttyUSB0",
+        --     baudrate = 9600,
+        --     parity = "N",
+        --     stopbits = 1,
+        --     timeout = 1.0,
+        --     enabled = true
+        -- },
 
-        -- BLE 接口
-        {
-            name = "ble_device",
-            type = "ble",
-            address = "00:1A:7D:DA:71:13",
-            service_uuid = "0000180a-0000-1000-8000-00805f9b34fb",
-            char_uuid = "00002a29-0000-1000-8000-00805f9b34fb",
-            enabled = false
-        },
+        -- -- BLE 接口
+        -- {
+        --     name = "ble_device",
+        --     type = "ble",
+        --     address = "00:1A:7D:DA:71:13",
+        --     service_uuid = "0000180a-0000-1000-8000-00805f9b34fb",
+        --     char_uuid = "00002a29-0000-1000-8000-00805f9b34fb",
+        --     enabled = false
+        -- },
 
-        -- 自定义接口
-        {
-            name = "custom_interface",
-            type = "custom",
-            protocol = "my_custom_protocol",
-            enabled = false,
-            protocol_config = {
-                serializer = function(message)
-                    return "CUSTOM:" .. tostring(message)
-                end,
-                deserializer = function(data)
-                    return data:sub(8) -- 去掉 "CUSTOM:" 前缀
-                end
-            },
-            handler = {
-                connect = function(self)
-                    print("Custom interface connected")
-                    return true
-                end,
-                disconnect = function(self)
-                    print("Custom interface disconnected")
-                    return true
-                end,
-                send = function(self, data, timeout)
-                    print("Custom interface sending:       " .. data)
-                    return true
-                end,
-                receive = function(self, timeout)
-                    -- 模拟接收数据
-                    return "Hello from custom interface"
-                end
-            }
-        },
+        -- -- 自定义接口
+        -- {
+        --     name = "custom_interface",
+        --     type = "custom",
+        --     protocol = "my_custom_protocol",
+        --     enabled = false,
+        --     protocol_config = {
+        --         serializer = function(message)
+        --             return "CUSTOM:" .. tostring(message)
+        --         end,
+        --         deserializer = function(data)
+        --             return data:sub(8) -- 去掉 "CUSTOM:" 前缀
+        --         end
+        --     }
+        -- },
 
         -- PLC 接口
         {
@@ -110,25 +98,7 @@ local config = {
             port = 8888,
             protocol = "plc",
             timeout = 5,
-            enabled = true,
-            handler = {
-                connect = function(self)
-                    print("PLC interface connected")
-                    return true
-                end,
-                disconnect = function(self)
-                    print("PLC interface disconnected")
-                    return true
-                end,
-                send = function(self, data, timeout)
-                    print("PLC interface sending:         " .. data)
-                    return true
-                end,
-                receive = function(self, timeout)
-                    -- 模拟接收数据
-                    return "Hello from PLC interface"
-                end
-            }
+            enabled = true
         }
     },
 
@@ -145,28 +115,28 @@ local config = {
             priority = 100,
             enabled = true
         },
-        {
-            name = "rule_rs485_fallback",
-            device_id = "device_003",
-            source_subnet = "0.0.0.0/0",
-            target_subnet = "0.0.0.0/0",
-            interfaces = {"rs485_sensor", "tcp_subnet1"},
-            timeout = 10.0,
-            retry_count = 2,
-            priority = 50,
-            enabled = true
-        },
-        {
-            name = "rule_custom_interface",
-            device_id = "device_004",
-            source_subnet = "0.0.0.0/0",
-            target_subnet = "0.0.0.0/0",
-            interfaces = {"custom_interface", "tcp_subnet1"},
-            timeout = 10.0,
-            retry_count = 2,
-            priority = 75,
-            enabled = false
-        },
+        -- {
+        --     name = "rule_rs485_fallback",
+        --     device_id = "device_003",
+        --     source_subnet = "0.0.0.0/0",
+        --     target_subnet = "0.0.0.0/0",
+        --     interfaces = {"rs485_sensor", "tcp_subnet1"},
+        --     timeout = 10.0,
+        --     retry_count = 2,
+        --     priority = 50,
+        --     enabled = true
+        -- },
+        -- {
+        --     name = "rule_custom_interface",
+        --     device_id = "device_004",
+        --     source_subnet = "0.0.0.0/0",
+        --     target_subnet = "0.0.0.0/0",
+        --     interfaces = {"custom_interface", "tcp_subnet1"},
+        --     timeout = 10.0,
+        --     retry_count = 2,
+        --     priority = 75,
+        --     enabled = false
+        -- },
         {
             name = "rule_plc",
             device_id = "device_005",
@@ -203,6 +173,13 @@ local config = {
             parity = "N",
             stopbits = 1,
             timeout = 1.0
+        },
+        plc = {
+            enabled = true,
+            host = "localhost",
+            port = 8888,
+            timeout = 5.0,
+            protocol = "plc"
         },
         custom_protocol = {
             enabled = false,

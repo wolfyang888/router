@@ -39,10 +39,11 @@ assert(send_result == true, "Failed to send data")
 print("✓ Send successful\n")
 
 -- 测试 4: 接收数据
+-- 在新设计中，receive从buffer读取数据
 print("[4] Testing receive method...")
 local received_data = plc_interface:receive()
 print(string.format("  Received: %s", received_data))
-assert(received_data ~= nil, "Failed to receive data")
+assert(received_data == "Test message via PLC", "Failed to receive data")
 print("✓ Receive successful\n")
 
 -- 测试 5: 获取状态
@@ -60,6 +61,27 @@ local disconnect_result = plc_interface:disconnect()
 assert(disconnect_result == true, "Failed to disconnect")
 assert(plc_interface.status == "disconnected", "Status not disconnected after disconnect")
 print("✓ Disconnect successful\n")
+
+-- 测试 7: buffer机制
+print("[7] Testing buffer mechanism...")
+local test_plc = PLCInterface.new("buffer_test", config)
+test_plc:connect()
+test_plc:send("Message 1")
+test_plc:send("Message 2")
+local data1 = test_plc:receive()
+local data2 = test_plc:receive()
+assert(data1 == "Message 1", "First buffer data mismatch")
+assert(data2 == "Message 2", "Second buffer data mismatch")
+print("✓ Buffer mechanism works correctly\n")
+
+-- 测试 8: 自定义模拟数据
+print("[8] Testing custom mock data...")
+local mock_plc = PLCInterface.new("mock_test", config)
+mock_plc:connect()
+table.insert(mock_plc.buffer, "Hello from PLC interface")
+local mock_data = mock_plc:receive()
+assert(mock_data == "Hello from PLC interface", "Mock data mismatch")
+print("✓ Custom mock data works correctly\n")
 
 print("================================================")
 print("  All PLC interface tests passed! ✅")

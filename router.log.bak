@@ -1,0 +1,790 @@
+[2026-04-19 15:47:42] [INFO] [gateway.lua:328] Starting network discovery on interface: tcp_subnet1
+[2026-04-19 15:47:42] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: tcp_subnet1
+[2026-04-19 15:47:42] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 15:47:42] [INFO] [gateway.lua:339] Discovered and registered device: device_001
+[2026-04-19 15:47:42] [INFO] [router_engine.lua:585] Device registered: device_002
+[2026-04-19 15:47:42] [INFO] [gateway.lua:339] Discovered and registered device: device_002
+[2026-04-19 15:47:42] [INFO] [gateway.lua:363] Network topology built and registered
+[2026-04-19 15:47:42] [INFO] [gateway.lua:308] Network discovery completed, found 2 new devices
+[2026-04-19 15:47:42] [DEBUG] [gateway.lua:312] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 15:47:42] [INFO] [test_device_discovery.lua:135] 自动网络发现响应: - 2
+[2026-04-19 15:47:42] [INFO] [test_device_discovery.lua:138] 
+=== 测试5: 不存在的接口 ===
+[2026-04-19 15:47:42] [ERROR] [gateway.lua:324] 接口未找到 - interface: invalid_interface
+[2026-04-19 15:47:42] [INFO] [gateway.lua:308] Network discovery completed, found 0 new devices
+[2026-04-19 15:47:42] [DEBUG] [gateway.lua:312] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 15:47:42] [INFO] [test_device_discovery.lua:147] 无效接口发现响应: - 2
+[2026-04-19 15:47:42] [INFO] [test_device_discovery.lua:150] 
+=== 测试6: PLC 接口网络发现 ===
+[2026-04-19 15:47:42] [INFO] [gateway.lua:328] Starting network discovery on interface: plc_main
+[2026-04-19 15:47:42] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: plc_main
+[2026-04-19 15:47:42] [INFO] [router_engine.lua:585] Device registered: plc_device_001
+[2026-04-19 15:47:42] [INFO] [gateway.lua:339] Discovered and registered device: plc_device_001
+[2026-04-19 15:47:42] [INFO] [router_engine.lua:585] Device registered: plc_device_002
+[2026-04-19 15:47:42] [INFO] [gateway.lua:339] Discovered and registered device: plc_device_002
+[2026-04-19 15:47:42] [INFO] [gateway.lua:363] Network topology built and registered
+[2026-04-19 15:47:42] [INFO] [gateway.lua:308] Network discovery completed, found 2 new devices
+[2026-04-19 15:47:42] [DEBUG] [gateway.lua:312] Device discovery requested by: test_client, found 4 devices
+[2026-04-19 15:47:42] [INFO] [test_device_discovery.lua:159] PLC 网络发现响应: - 4
+[2026-04-19 15:47:42] [INFO] [test_device_discovery.lua:162] 
+=== 测试7: 检查拓扑构建 ===
+[2026-04-19 15:47:42] [INFO] [test_device_discovery.lua:164] 拓扑构建成功，设备数量: - 4
+[2026-04-19 15:47:42] [INFO] [test_device_discovery.lua:166]   设备: - device_001
+[2026-04-19 15:47:42] [INFO] [test_device_discovery.lua:166]   设备: - device_002
+[2026-04-19 15:47:42] [INFO] [test_device_discovery.lua:166]   设备: - plc_device_001
+[2026-04-19 15:47:42] [INFO] [test_device_discovery.lua:166]   设备: - plc_device_002
+[2026-04-19 15:47:42] [INFO] [gateway.lua:367] Stopping gateway...
+[2026-04-19 15:47:42] [INFO] [test_device_discovery.lua:174] 
+=== 设备发现测试完成 ===
+[2026-04-19 15:48:13] [INFO] [test_device_discovery.lua:67] === 开始测试设备发现功能 ===
+[2026-04-19 15:48:13] [INFO] [test_device_discovery.lua:79] 网关初始化完成，开始测试设备发现
+[2026-04-19 15:48:13] [INFO] [router_engine.lua:113] Interface registered: tcp_subnet1
+[2026-04-19 15:48:13] [INFO] [router_engine.lua:113] Interface registered: rs485_subnet1
+[2026-04-19 15:48:13] [INFO] [router_engine.lua:113] Interface registered: plc_main
+[2026-04-19 15:48:13] [INFO] [test_device_discovery.lua:90] 网关初始化完成，开始测试设备发现
+[2026-04-19 15:48:13] [INFO] [test_device_discovery.lua:93] 
+=== 测试1: 基本发现 ===
+[2026-04-19 15:49:15] [DEBUG] [gateway.lua:312] Device discovery requested by: test_client, found 0 devices
+[2026-04-19 15:49:47] [INFO] [test_device_discovery.lua:100] 基本发现响应: - 0
+[2026-04-19 15:49:51] [INFO] [test_device_discovery.lua:103] 
+=== 测试2: TCP 接口网络发现 ===
+[2026-04-19 15:50:40] [INFO] [gateway.lua:328] Starting network discovery on interface: tcp_subnet1
+[2026-04-19 15:50:42] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: tcp_subnet1
+[2026-04-19 15:51:17] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 15:51:22] [INFO] [gateway.lua:339] Discovered and registered device: device_001
+[2026-04-19 15:51:24] [INFO] [router_engine.lua:585] Device registered: device_002
+[2026-04-19 15:51:25] [INFO] [gateway.lua:339] Discovered and registered device: device_002
+[2026-04-19 15:52:21] [INFO] [gateway.lua:363] Network topology built and registered
+[2026-04-19 15:52:23] [INFO] [gateway.lua:308] Network discovery completed, found 2 new devices
+[2026-04-19 15:52:40] [DEBUG] [gateway.lua:312] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 15:52:43] [INFO] [test_device_discovery.lua:112] TCP 网络发现响应: - 2
+[2026-04-19 15:53:02] [INFO] [test_device_discovery.lua:115] 
+=== 测试3: RS485 接口网络发现 ===
+[2026-04-19 15:53:20] [INFO] [gateway.lua:328] Starting network discovery on interface: rs485_subnet1
+[2026-04-19 15:53:20] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: rs485_subnet1
+[2026-04-19 15:53:20] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 15:53:20] [INFO] [gateway.lua:339] Discovered and registered device: device_001
+[2026-04-19 15:53:20] [INFO] [router_engine.lua:585] Device registered: device_002
+[2026-04-19 15:53:20] [INFO] [gateway.lua:339] Discovered and registered device: device_002
+[2026-04-19 15:53:20] [INFO] [gateway.lua:363] Network topology built and registered
+[2026-04-19 15:53:23] [INFO] [gateway.lua:308] Network discovery completed, found 2 new devices
+[2026-04-19 15:53:24] [DEBUG] [gateway.lua:312] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 15:53:27] [INFO] [test_device_discovery.lua:124] RS485 网络发现响应: - 2
+[2026-04-19 15:53:28] [INFO] [test_device_discovery.lua:127] 
+=== 测试4: 未指定接口的网络发现 ===
+[2026-04-19 15:53:31] [INFO] [gateway.lua:328] Starting network discovery on interface: tcp_subnet1
+[2026-04-19 15:53:31] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: tcp_subnet1
+[2026-04-19 15:53:31] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 15:53:31] [INFO] [gateway.lua:339] Discovered and registered device: device_001
+[2026-04-19 15:53:31] [INFO] [router_engine.lua:585] Device registered: device_002
+[2026-04-19 15:53:31] [INFO] [gateway.lua:339] Discovered and registered device: device_002
+[2026-04-19 15:53:31] [INFO] [gateway.lua:363] Network topology built and registered
+[2026-04-19 15:53:31] [INFO] [gateway.lua:308] Network discovery completed, found 2 new devices
+[2026-04-19 15:53:31] [DEBUG] [gateway.lua:312] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 15:53:34] [INFO] [test_device_discovery.lua:135] 自动网络发现响应: - 2
+[2026-04-19 15:53:46] [INFO] [test_device_discovery.lua:138] 
+=== 测试5: 不存在的接口 ===
+[2026-04-19 15:55:05] [ERROR] [gateway.lua:324] 接口未找到 - interface: invalid_interface
+[2026-04-19 15:55:05] [INFO] [gateway.lua:308] Network discovery completed, found 0 new devices
+[2026-04-19 15:55:05] [DEBUG] [gateway.lua:312] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 15:55:06] [INFO] [test_device_discovery.lua:147] 无效接口发现响应: - 2
+[2026-04-19 15:55:19] [INFO] [test_device_discovery.lua:150] 
+=== 测试6: PLC 接口网络发现 ===
+[2026-04-19 15:55:34] [INFO] [gateway.lua:328] Starting network discovery on interface: plc_main
+[2026-04-19 15:55:34] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: plc_main
+[2026-04-19 15:55:34] [INFO] [router_engine.lua:585] Device registered: plc_device_001
+[2026-04-19 15:55:34] [INFO] [gateway.lua:339] Discovered and registered device: plc_device_001
+[2026-04-19 15:55:34] [INFO] [router_engine.lua:585] Device registered: plc_device_002
+[2026-04-19 15:55:34] [INFO] [gateway.lua:339] Discovered and registered device: plc_device_002
+[2026-04-19 15:55:34] [INFO] [gateway.lua:363] Network topology built and registered
+[2026-04-19 15:55:35] [INFO] [gateway.lua:308] Network discovery completed, found 2 new devices
+[2026-04-19 15:56:31] [DEBUG] [gateway.lua:312] Device discovery requested by: test_client, found 4 devices
+[2026-04-19 15:56:34] [INFO] [test_device_discovery.lua:159] PLC 网络发现响应: - 4
+[2026-04-19 15:56:43] [INFO] [test_device_discovery.lua:162] 
+=== 测试7: 检查拓扑构建 ===
+[2026-04-19 15:56:45] [INFO] [test_device_discovery.lua:164] 拓扑构建成功，设备数量: - 4
+[2026-04-19 15:56:45] [INFO] [test_device_discovery.lua:166]   设备: - plc_device_002
+[2026-04-19 15:56:46] [INFO] [test_device_discovery.lua:166]   设备: - device_002
+[2026-04-19 15:56:47] [INFO] [test_device_discovery.lua:166]   设备: - device_001
+[2026-04-19 15:56:48] [INFO] [test_device_discovery.lua:166]   设备: - plc_device_001
+[2026-04-19 15:56:50] [INFO] [gateway.lua:367] Stopping gateway...
+[2026-04-19 15:56:50] [INFO] [test_device_discovery.lua:174] 
+=== 设备发现测试完成 ===
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:67] === 开始测试设备发现功能 ===
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:79] 网关初始化完成，开始测试设备发现
+[2026-04-19 16:04:38] [INFO] [router_engine.lua:113] Interface registered: tcp_subnet1
+[2026-04-19 16:04:38] [INFO] [router_engine.lua:113] Interface registered: rs485_subnet1
+[2026-04-19 16:04:38] [INFO] [router_engine.lua:113] Interface registered: plc_main
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:90] 网关初始化完成，开始测试设备发现
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:93] 
+=== 测试1: 基本发现 ===
+[2026-04-19 16:04:38] [DEBUG] [gateway.lua:312] Device discovery requested by: test_client, found 0 devices
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:100] 基本发现响应: - 0
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:103] 
+=== 测试2: TCP 接口网络发现 ===
+[2026-04-19 16:04:38] [INFO] [gateway.lua:329] Starting network discovery on interface: tcp_subnet1
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: tcp_subnet1
+[2026-04-19 16:04:38] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 16:04:38] [INFO] [gateway.lua:344] Discovered and registered device: device_001
+[2026-04-19 16:04:38] [INFO] [router_engine.lua:585] Device registered: device_002
+[2026-04-19 16:04:38] [INFO] [gateway.lua:344] Discovered and registered device: device_002
+[2026-04-19 16:04:38] [INFO] [gateway.lua:371] Network topology built and registered
+[2026-04-19 16:04:38] [INFO] [gateway.lua:308] Network discovery completed, found 2 unique devices
+[2026-04-19 16:04:38] [DEBUG] [gateway.lua:312] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:112] TCP 网络发现响应: - 2
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:115] 
+=== 测试3: RS485 接口网络发现 ===
+[2026-04-19 16:04:38] [INFO] [gateway.lua:329] Starting network discovery on interface: rs485_subnet1
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: rs485_subnet1
+[2026-04-19 16:04:38] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 16:04:38] [INFO] [gateway.lua:344] Discovered and registered device: device_001
+[2026-04-19 16:04:38] [INFO] [router_engine.lua:585] Device registered: device_002
+[2026-04-19 16:04:38] [INFO] [gateway.lua:344] Discovered and registered device: device_002
+[2026-04-19 16:04:38] [INFO] [gateway.lua:371] Network topology built and registered
+[2026-04-19 16:04:38] [INFO] [gateway.lua:308] Network discovery completed, found 2 unique devices
+[2026-04-19 16:04:38] [DEBUG] [gateway.lua:312] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:124] RS485 网络发现响应: - 2
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:127] 
+=== 测试4: 未指定接口的网络发现 ===
+[2026-04-19 16:04:38] [INFO] [gateway.lua:329] Starting network discovery on interface: tcp_subnet1
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: tcp_subnet1
+[2026-04-19 16:04:38] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 16:04:38] [INFO] [gateway.lua:344] Discovered and registered device: device_001
+[2026-04-19 16:04:38] [INFO] [router_engine.lua:585] Device registered: device_002
+[2026-04-19 16:04:38] [INFO] [gateway.lua:344] Discovered and registered device: device_002
+[2026-04-19 16:04:38] [INFO] [gateway.lua:371] Network topology built and registered
+[2026-04-19 16:04:38] [INFO] [gateway.lua:308] Network discovery completed, found 2 unique devices
+[2026-04-19 16:04:38] [DEBUG] [gateway.lua:312] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:135] 自动网络发现响应: - 2
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:138] 
+=== 测试5: 不存在的接口 ===
+[2026-04-19 16:04:38] [ERROR] [gateway.lua:325] 接口未找到 - interface: invalid_interface
+[2026-04-19 16:04:38] [INFO] [gateway.lua:308] Network discovery completed, found 0 unique devices
+[2026-04-19 16:04:38] [DEBUG] [gateway.lua:312] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:147] 无效接口发现响应: - 2
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:150] 
+=== 测试6: PLC 接口网络发现 ===
+[2026-04-19 16:04:38] [INFO] [gateway.lua:329] Starting network discovery on interface: plc_main
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: plc_main
+[2026-04-19 16:04:38] [INFO] [router_engine.lua:585] Device registered: plc_device_001
+[2026-04-19 16:04:38] [INFO] [gateway.lua:344] Discovered and registered device: plc_device_001
+[2026-04-19 16:04:38] [INFO] [router_engine.lua:585] Device registered: plc_device_002
+[2026-04-19 16:04:38] [INFO] [gateway.lua:344] Discovered and registered device: plc_device_002
+[2026-04-19 16:04:38] [INFO] [gateway.lua:371] Network topology built and registered
+[2026-04-19 16:04:38] [INFO] [gateway.lua:308] Network discovery completed, found 2 unique devices
+[2026-04-19 16:04:38] [DEBUG] [gateway.lua:312] Device discovery requested by: test_client, found 4 devices
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:159] PLC 网络发现响应: - 4
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:162] 
+=== 测试7: 检查拓扑构建 ===
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:164] 拓扑构建成功，设备数量: - 4
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:166]   设备: - plc_device_002
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:166]   设备: - device_002
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:166]   设备: - device_001
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:166]   设备: - plc_device_001
+[2026-04-19 16:04:38] [INFO] [gateway.lua:375] Stopping gateway...
+[2026-04-19 16:04:38] [INFO] [test_device_discovery.lua:174] 
+=== 设备发现测试完成 ===
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:67] === 开始测试设备发现功能 ===
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:79] 网关初始化完成，开始测试设备发现
+[2026-04-19 16:05:24] [INFO] [router_engine.lua:113] Interface registered: tcp_subnet1
+[2026-04-19 16:05:24] [INFO] [router_engine.lua:113] Interface registered: rs485_subnet1
+[2026-04-19 16:05:24] [INFO] [router_engine.lua:113] Interface registered: plc_main
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:90] 网关初始化完成，开始测试设备发现
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:93] 
+=== 测试1: 基本发现 ===
+[2026-04-19 16:05:24] [DEBUG] [gateway.lua:311] Device discovery requested by: test_client, found 0 devices
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:100] 基本发现响应: - 0
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:103] 
+=== 测试2: TCP 接口网络发现 ===
+[2026-04-19 16:05:24] [INFO] [gateway.lua:329] Starting network discovery on interface: tcp_subnet1
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: tcp_subnet1
+[2026-04-19 16:05:24] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 16:05:24] [INFO] [gateway.lua:349] Discovered and registered NEW device: device_001
+[2026-04-19 16:05:24] [INFO] [router_engine.lua:585] Device registered: device_002
+[2026-04-19 16:05:24] [INFO] [gateway.lua:349] Discovered and registered NEW device: device_002
+[2026-04-19 16:05:24] [INFO] [gateway.lua:381] Network topology built and registered
+[2026-04-19 16:05:24] [INFO] [gateway.lua:366] Network discovery completed, found 2 new devices, 2 total devices in list
+[2026-04-19 16:05:24] [DEBUG] [gateway.lua:311] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:112] TCP 网络发现响应: - 2
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:115] 
+=== 测试3: RS485 接口网络发现 ===
+[2026-04-19 16:05:24] [INFO] [gateway.lua:329] Starting network discovery on interface: rs485_subnet1
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: rs485_subnet1
+[2026-04-19 16:05:24] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 16:05:24] [DEBUG] [gateway.lua:351] Device device_001 already registered, updating info
+[2026-04-19 16:05:24] [INFO] [router_engine.lua:585] Device registered: device_002
+[2026-04-19 16:05:24] [DEBUG] [gateway.lua:351] Device device_002 already registered, updating info
+[2026-04-19 16:05:24] [INFO] [gateway.lua:381] Network topology built and registered
+[2026-04-19 16:05:24] [INFO] [gateway.lua:366] Network discovery completed, found 0 new devices, 2 total devices in list
+[2026-04-19 16:05:24] [DEBUG] [gateway.lua:311] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:124] RS485 网络发现响应: - 2
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:127] 
+=== 测试4: 未指定接口的网络发现 ===
+[2026-04-19 16:05:24] [INFO] [gateway.lua:329] Starting network discovery on interface: tcp_subnet1
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: tcp_subnet1
+[2026-04-19 16:05:24] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 16:05:24] [DEBUG] [gateway.lua:351] Device device_001 already registered, updating info
+[2026-04-19 16:05:24] [INFO] [router_engine.lua:585] Device registered: device_002
+[2026-04-19 16:05:24] [DEBUG] [gateway.lua:351] Device device_002 already registered, updating info
+[2026-04-19 16:05:24] [INFO] [gateway.lua:381] Network topology built and registered
+[2026-04-19 16:05:24] [INFO] [gateway.lua:366] Network discovery completed, found 0 new devices, 2 total devices in list
+[2026-04-19 16:05:24] [DEBUG] [gateway.lua:311] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:135] 自动网络发现响应: - 2
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:138] 
+=== 测试5: 不存在的接口 ===
+[2026-04-19 16:05:24] [ERROR] [gateway.lua:325] 接口未找到 - interface: invalid_interface
+[2026-04-19 16:05:24] [DEBUG] [gateway.lua:311] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:147] 无效接口发现响应: - 2
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:150] 
+=== 测试6: PLC 接口网络发现 ===
+[2026-04-19 16:05:24] [INFO] [gateway.lua:329] Starting network discovery on interface: plc_main
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: plc_main
+[2026-04-19 16:05:24] [INFO] [router_engine.lua:585] Device registered: plc_device_001
+[2026-04-19 16:05:24] [INFO] [gateway.lua:349] Discovered and registered NEW device: plc_device_001
+[2026-04-19 16:05:24] [INFO] [router_engine.lua:585] Device registered: plc_device_002
+[2026-04-19 16:05:24] [INFO] [gateway.lua:349] Discovered and registered NEW device: plc_device_002
+[2026-04-19 16:05:24] [INFO] [gateway.lua:381] Network topology built and registered
+[2026-04-19 16:05:24] [INFO] [gateway.lua:366] Network discovery completed, found 2 new devices, 2 total devices in list
+[2026-04-19 16:05:24] [DEBUG] [gateway.lua:311] Device discovery requested by: test_client, found 4 devices
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:159] PLC 网络发现响应: - 4
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:162] 
+=== 测试7: 检查拓扑构建 ===
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:164] 拓扑构建成功，设备数量: - 4
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:166]   设备: - device_001
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:166]   设备: - plc_device_002
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:166]   设备: - device_002
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:166]   设备: - plc_device_001
+[2026-04-19 16:05:24] [INFO] [gateway.lua:385] Stopping gateway...
+[2026-04-19 16:05:24] [INFO] [test_device_discovery.lua:174] 
+=== 设备发现测试完成 ===
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:105] === 开始测试设备发现功能 ===
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:117] 网关初始化完成，开始测试设备发现
+[2026-04-19 16:07:33] [INFO] [router_engine.lua:113] Interface registered: tcp_subnet1
+[2026-04-19 16:07:33] [INFO] [router_engine.lua:113] Interface registered: rs485_subnet1
+[2026-04-19 16:07:33] [INFO] [router_engine.lua:113] Interface registered: plc_main
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:128] 网关初始化完成，开始测试设备发现
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:131] 
+=== 测试1: 基本发现 ===
+[2026-04-19 16:07:33] [DEBUG] [gateway.lua:311] Device discovery requested by: test_client, found 0 devices
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:138] 基本发现响应: - 0
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:141] 
+=== 测试2: TCP 接口网络发现 ===
+[2026-04-19 16:07:33] [INFO] [gateway.lua:329] Starting network discovery on interface: tcp_subnet1
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: tcp_subnet1
+[2026-04-19 16:07:33] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 16:07:33] [INFO] [gateway.lua:349] Discovered and registered NEW device: device_001
+[2026-04-19 16:07:33] [INFO] [router_engine.lua:585] Device registered: device_002
+[2026-04-19 16:07:33] [INFO] [gateway.lua:349] Discovered and registered NEW device: device_002
+[2026-04-19 16:07:33] [INFO] [gateway.lua:381] Network topology built and registered
+[2026-04-19 16:07:33] [INFO] [gateway.lua:366] Network discovery completed, found 2 new devices, 2 total devices in list
+[2026-04-19 16:07:33] [DEBUG] [gateway.lua:311] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:150] TCP 网络发现响应: - 2
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:153] 
+=== 测试3: RS485 接口网络发现 ===
+[2026-04-19 16:07:33] [INFO] [gateway.lua:329] Starting network discovery on interface: rs485_subnet1
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: rs485_subnet1
+[2026-04-19 16:07:33] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 16:07:33] [DEBUG] [gateway.lua:351] Device device_001 already registered, updating info
+[2026-04-19 16:07:33] [INFO] [router_engine.lua:585] Device registered: device_002
+[2026-04-19 16:07:33] [DEBUG] [gateway.lua:351] Device device_002 already registered, updating info
+[2026-04-19 16:07:33] [INFO] [gateway.lua:381] Network topology built and registered
+[2026-04-19 16:07:33] [INFO] [gateway.lua:366] Network discovery completed, found 0 new devices, 2 total devices in list
+[2026-04-19 16:07:33] [DEBUG] [gateway.lua:311] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:162] RS485 网络发现响应: - 2
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:165] 
+=== 测试4: 未指定接口的网络发现 ===
+[2026-04-19 16:07:33] [INFO] [gateway.lua:329] Starting network discovery on interface: tcp_subnet1
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: tcp_subnet1
+[2026-04-19 16:07:33] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 16:07:33] [DEBUG] [gateway.lua:351] Device device_001 already registered, updating info
+[2026-04-19 16:07:33] [INFO] [router_engine.lua:585] Device registered: device_002
+[2026-04-19 16:07:33] [DEBUG] [gateway.lua:351] Device device_002 already registered, updating info
+[2026-04-19 16:07:33] [INFO] [gateway.lua:381] Network topology built and registered
+[2026-04-19 16:07:33] [INFO] [gateway.lua:366] Network discovery completed, found 0 new devices, 2 total devices in list
+[2026-04-19 16:07:33] [DEBUG] [gateway.lua:311] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:173] 自动网络发现响应: - 2
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:176] 
+=== 测试5: 不存在的接口 ===
+[2026-04-19 16:07:33] [ERROR] [gateway.lua:325] 接口未找到 - interface: invalid_interface
+[2026-04-19 16:07:33] [DEBUG] [gateway.lua:311] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:185] 无效接口发现响应: - 2
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:188] 
+=== 测试6: PLC 接口网络发现 ===
+[2026-04-19 16:07:33] [INFO] [gateway.lua:329] Starting network discovery on interface: plc_main
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: plc_main
+[2026-04-19 16:07:33] [INFO] [router_engine.lua:585] Device registered: plc_device_001
+[2026-04-19 16:07:33] [INFO] [gateway.lua:349] Discovered and registered NEW device: plc_device_001
+[2026-04-19 16:07:33] [INFO] [router_engine.lua:585] Device registered: plc_device_002
+[2026-04-19 16:07:33] [INFO] [gateway.lua:349] Discovered and registered NEW device: plc_device_002
+[2026-04-19 16:07:33] [INFO] [gateway.lua:381] Network topology built and registered
+[2026-04-19 16:07:33] [INFO] [gateway.lua:366] Network discovery completed, found 2 new devices, 2 total devices in list
+[2026-04-19 16:07:33] [DEBUG] [gateway.lua:311] Device discovery requested by: test_client, found 4 devices
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:197] PLC 网络发现响应: - 4
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:200] 
+=== 测试7: 混合接口网络发现（重复 ID 去重测试）===
+[2026-04-19 16:07:33] [INFO] [router_engine.lua:113] Interface registered: mixed_interface
+[2026-04-19 16:07:33] [INFO] [gateway.lua:329] Starting network discovery on interface: mixed_interface
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: mixed_interface
+[2026-04-19 16:07:33] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 16:07:33] [DEBUG] [gateway.lua:351] Device device_001 already registered, updating info
+[2026-04-19 16:07:33] [INFO] [router_engine.lua:585] Device registered: plc_device_001
+[2026-04-19 16:07:33] [DEBUG] [gateway.lua:351] Device plc_device_001 already registered, updating info
+[2026-04-19 16:07:33] [INFO] [router_engine.lua:585] Device registered: mixed_device_001
+[2026-04-19 16:07:33] [INFO] [gateway.lua:349] Discovered and registered NEW device: mixed_device_001
+[2026-04-19 16:07:33] [INFO] [gateway.lua:381] Network topology built and registered
+[2026-04-19 16:07:33] [INFO] [gateway.lua:366] Network discovery completed, found 1 new devices, 3 total devices in list
+[2026-04-19 16:07:33] [DEBUG] [gateway.lua:311] Device discovery requested by: test_client, found 5 devices
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:213] 混合接口网络发现响应: - 5
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:214] 预期结果: 应只发现 1 个新设备 (mixed_device_001)，device_001 和 plc_device_001 已存在应被过滤
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:217] 
+=== 测试8: 检查拓扑构建 ===
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:219] 拓扑构建成功，设备数量: - 5
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:221]   设备: - device_002
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:221]   设备: - plc_device_002
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:221]   设备: - device_001
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:221]   设备: - mixed_device_001
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:221]   设备: - plc_device_001
+[2026-04-19 16:07:33] [INFO] [gateway.lua:385] Stopping gateway...
+[2026-04-19 16:07:33] [INFO] [test_device_discovery.lua:229] 
+=== 设备发现测试完成 ===
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:105] === 开始测试设备发现功能 ===
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:117] 网关初始化完成，开始测试设备发现
+[2026-04-19 16:12:16] [INFO] [router_engine.lua:113] Interface registered: tcp_subnet1
+[2026-04-19 16:12:16] [INFO] [router_engine.lua:113] Interface registered: rs485_subnet1
+[2026-04-19 16:12:16] [INFO] [router_engine.lua:113] Interface registered: plc_main
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:128] 网关初始化完成，开始测试设备发现
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:131] 
+=== 测试1: 基本发现 ===
+[2026-04-19 16:12:16] [DEBUG] [gateway.lua:311] Device discovery requested by: test_client, found 0 devices
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:138] 基本发现响应: - 0
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:141] 
+=== 测试2: TCP 接口网络发现 ===
+[2026-04-19 16:12:16] [INFO] [gateway.lua:329] Starting network discovery on interface: tcp_subnet1
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: tcp_subnet1
+[2026-04-19 16:12:16] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 16:12:16] [INFO] [gateway.lua:349] Discovered and registered NEW device: device_001
+[2026-04-19 16:12:16] [INFO] [router_engine.lua:585] Device registered: device_002
+[2026-04-19 16:12:16] [INFO] [gateway.lua:349] Discovered and registered NEW device: device_002
+[2026-04-19 16:12:16] [INFO] [gateway.lua:381] Network topology built and registered
+[2026-04-19 16:12:16] [INFO] [gateway.lua:366] Network discovery completed, found 2 new devices, 2 total devices in list
+[2026-04-19 16:12:16] [DEBUG] [gateway.lua:311] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:150] TCP 网络发现响应: - 2
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:153] 
+=== 测试3: RS485 接口网络发现 ===
+[2026-04-19 16:12:16] [INFO] [gateway.lua:329] Starting network discovery on interface: rs485_subnet1
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: rs485_subnet1
+[2026-04-19 16:12:16] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 16:12:16] [DEBUG] [gateway.lua:351] Device device_001 already registered, updating info
+[2026-04-19 16:12:16] [INFO] [router_engine.lua:585] Device registered: device_002
+[2026-04-19 16:12:16] [DEBUG] [gateway.lua:351] Device device_002 already registered, updating info
+[2026-04-19 16:12:16] [INFO] [gateway.lua:381] Network topology built and registered
+[2026-04-19 16:12:16] [INFO] [gateway.lua:366] Network discovery completed, found 0 new devices, 2 total devices in list
+[2026-04-19 16:12:16] [DEBUG] [gateway.lua:311] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:162] RS485 网络发现响应: - 2
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:165] 
+=== 测试4: 未指定接口的网络发现 ===
+[2026-04-19 16:12:16] [INFO] [gateway.lua:329] Starting network discovery on interface: tcp_subnet1
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: tcp_subnet1
+[2026-04-19 16:12:16] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 16:12:16] [DEBUG] [gateway.lua:351] Device device_001 already registered, updating info
+[2026-04-19 16:12:16] [INFO] [router_engine.lua:585] Device registered: device_002
+[2026-04-19 16:12:16] [DEBUG] [gateway.lua:351] Device device_002 already registered, updating info
+[2026-04-19 16:12:16] [INFO] [gateway.lua:381] Network topology built and registered
+[2026-04-19 16:12:16] [INFO] [gateway.lua:366] Network discovery completed, found 0 new devices, 2 total devices in list
+[2026-04-19 16:12:16] [DEBUG] [gateway.lua:311] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:173] 自动网络发现响应: - 2
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:176] 
+=== 测试5: 不存在的接口 ===
+[2026-04-19 16:12:16] [ERROR] [gateway.lua:325] 接口未找到 - interface: invalid_interface
+[2026-04-19 16:12:16] [DEBUG] [gateway.lua:311] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:185] 无效接口发现响应: - 2
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:188] 
+=== 测试6: PLC 接口网络发现 ===
+[2026-04-19 16:12:16] [INFO] [gateway.lua:329] Starting network discovery on interface: plc_main
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: plc_main
+[2026-04-19 16:12:16] [INFO] [router_engine.lua:585] Device registered: plc_device_001
+[2026-04-19 16:12:16] [INFO] [gateway.lua:349] Discovered and registered NEW device: plc_device_001
+[2026-04-19 16:12:16] [INFO] [router_engine.lua:585] Device registered: plc_device_002
+[2026-04-19 16:12:16] [INFO] [gateway.lua:349] Discovered and registered NEW device: plc_device_002
+[2026-04-19 16:12:16] [INFO] [gateway.lua:381] Network topology built and registered
+[2026-04-19 16:12:16] [INFO] [gateway.lua:366] Network discovery completed, found 2 new devices, 2 total devices in list
+[2026-04-19 16:12:16] [DEBUG] [gateway.lua:311] Device discovery requested by: test_client, found 4 devices
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:197] PLC 网络发现响应: - 4
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:200] 
+=== 测试7: 混合接口网络发现（重复 ID 去重测试）===
+[2026-04-19 16:12:16] [INFO] [router_engine.lua:113] Interface registered: mixed_interface
+[2026-04-19 16:12:16] [INFO] [gateway.lua:329] Starting network discovery on interface: mixed_interface
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: mixed_interface
+[2026-04-19 16:12:16] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 16:12:16] [DEBUG] [gateway.lua:351] Device device_001 already registered, updating info
+[2026-04-19 16:12:16] [INFO] [router_engine.lua:585] Device registered: plc_device_001
+[2026-04-19 16:12:16] [DEBUG] [gateway.lua:351] Device plc_device_001 already registered, updating info
+[2026-04-19 16:12:16] [INFO] [router_engine.lua:585] Device registered: mixed_device_001
+[2026-04-19 16:12:16] [INFO] [gateway.lua:349] Discovered and registered NEW device: mixed_device_001
+[2026-04-19 16:12:16] [INFO] [gateway.lua:381] Network topology built and registered
+[2026-04-19 16:12:16] [INFO] [gateway.lua:366] Network discovery completed, found 1 new devices, 3 total devices in list
+[2026-04-19 16:12:16] [DEBUG] [gateway.lua:311] Device discovery requested by: test_client, found 5 devices
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:213] 混合接口网络发现响应: - 5
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:214] 预期结果: 应只发现 1 个新设备 (mixed_device_001)，device_001 和 plc_device_001 已存在应被过滤
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:217] 
+=== 测试8: 检查拓扑构建 ===
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:219] 拓扑构建成功，设备数量: - 5
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:221]   设备: - device_002
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:221]   设备: - device_001
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:221]   设备: - plc_device_002
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:221]   设备: - mixed_device_001
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:221]   设备: - plc_device_001
+[2026-04-19 16:12:16] [INFO] [gateway.lua:385] Stopping gateway...
+[2026-04-19 16:12:16] [INFO] [test_device_discovery.lua:229] 
+=== 设备发现测试完成 ===
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:105] === 开始测试设备发现功能 ===
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:117] 网关初始化完成，开始测试设备发现
+[2026-04-19 16:20:34] [INFO] [router_engine.lua:113] Interface registered: tcp_subnet1
+[2026-04-19 16:20:34] [INFO] [router_engine.lua:113] Interface registered: rs485_subnet1
+[2026-04-19 16:20:34] [INFO] [router_engine.lua:113] Interface registered: plc_main
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:128] 网关初始化完成，开始测试设备发现
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:131] 
+=== 测试1: 基本发现 ===
+[2026-04-19 16:20:34] [DEBUG] [gateway.lua:315] Device discovery requested by: test_client, found 0 devices
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:138] 基本发现响应: - 0
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:141] 
+=== 测试2: TCP 接口网络发现 ===
+[2026-04-19 16:20:34] [INFO] [gateway.lua:333] Starting network discovery on interface: tcp_subnet1
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: tcp_subnet1
+[2026-04-19 16:20:34] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 16:20:34] [INFO] [gateway.lua:353] Discovered and registered NEW device: device_001
+[2026-04-19 16:20:34] [INFO] [router_engine.lua:585] Device registered: device_002
+[2026-04-19 16:20:34] [INFO] [gateway.lua:353] Discovered and registered NEW device: device_002
+[2026-04-19 16:20:34] [INFO] [gateway.lua:385] Network topology built and registered
+[2026-04-19 16:20:34] [INFO] [gateway.lua:370] Network discovery completed, found 2 new devices, 2 total devices in list
+[2026-04-19 16:20:34] [DEBUG] [gateway.lua:315] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:150] TCP 网络发现响应: - 2
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:153] 
+=== 测试3: RS485 接口网络发现 ===
+[2026-04-19 16:20:34] [INFO] [gateway.lua:333] Starting network discovery on interface: rs485_subnet1
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: rs485_subnet1
+[2026-04-19 16:20:34] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 16:20:34] [DEBUG] [gateway.lua:355] Device device_001 already registered, updating info
+[2026-04-19 16:20:34] [INFO] [router_engine.lua:585] Device registered: device_002
+[2026-04-19 16:20:34] [DEBUG] [gateway.lua:355] Device device_002 already registered, updating info
+[2026-04-19 16:20:34] [INFO] [gateway.lua:385] Network topology built and registered
+[2026-04-19 16:20:34] [INFO] [gateway.lua:370] Network discovery completed, found 0 new devices, 2 total devices in list
+[2026-04-19 16:20:34] [DEBUG] [gateway.lua:315] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:162] RS485 网络发现响应: - 2
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:165] 
+=== 测试4: 未指定接口的网络发现 ===
+[2026-04-19 16:20:34] [INFO] [gateway.lua:333] Starting network discovery on interface: tcp_subnet1
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: tcp_subnet1
+[2026-04-19 16:20:34] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 16:20:34] [DEBUG] [gateway.lua:355] Device device_001 already registered, updating info
+[2026-04-19 16:20:34] [INFO] [router_engine.lua:585] Device registered: device_002
+[2026-04-19 16:20:34] [DEBUG] [gateway.lua:355] Device device_002 already registered, updating info
+[2026-04-19 16:20:34] [INFO] [gateway.lua:385] Network topology built and registered
+[2026-04-19 16:20:34] [INFO] [gateway.lua:370] Network discovery completed, found 0 new devices, 2 total devices in list
+[2026-04-19 16:20:34] [DEBUG] [gateway.lua:315] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:173] 自动网络发现响应: - 2
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:176] 
+=== 测试5: 不存在的接口 ===
+[2026-04-19 16:20:34] [ERROR] [gateway.lua:329] 接口未找到 - interface: invalid_interface
+[2026-04-19 16:20:34] [DEBUG] [gateway.lua:315] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:185] 无效接口发现响应: - 2
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:188] 
+=== 测试6: PLC 接口网络发现 ===
+[2026-04-19 16:20:34] [INFO] [gateway.lua:333] Starting network discovery on interface: plc_main
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: plc_main
+[2026-04-19 16:20:34] [INFO] [router_engine.lua:585] Device registered: plc_device_001
+[2026-04-19 16:20:34] [INFO] [gateway.lua:353] Discovered and registered NEW device: plc_device_001
+[2026-04-19 16:20:34] [INFO] [router_engine.lua:585] Device registered: plc_device_002
+[2026-04-19 16:20:34] [INFO] [gateway.lua:353] Discovered and registered NEW device: plc_device_002
+[2026-04-19 16:20:34] [INFO] [gateway.lua:385] Network topology built and registered
+[2026-04-19 16:20:34] [INFO] [gateway.lua:370] Network discovery completed, found 2 new devices, 2 total devices in list
+[2026-04-19 16:20:34] [DEBUG] [gateway.lua:315] Device discovery requested by: test_client, found 4 devices
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:197] PLC 网络发现响应: - 4
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:200] 
+=== 测试7: 混合接口网络发现（重复 ID 去重测试）===
+[2026-04-19 16:20:34] [INFO] [router_engine.lua:113] Interface registered: mixed_interface
+[2026-04-19 16:20:34] [INFO] [gateway.lua:333] Starting network discovery on interface: mixed_interface
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:14] Scanning devices on interface: mixed_interface
+[2026-04-19 16:20:34] [INFO] [router_engine.lua:585] Device registered: device_001
+[2026-04-19 16:20:34] [DEBUG] [gateway.lua:355] Device device_001 already registered, updating info
+[2026-04-19 16:20:34] [INFO] [router_engine.lua:585] Device registered: plc_device_001
+[2026-04-19 16:20:34] [DEBUG] [gateway.lua:355] Device plc_device_001 already registered, updating info
+[2026-04-19 16:20:34] [INFO] [router_engine.lua:585] Device registered: mixed_device_001
+[2026-04-19 16:20:34] [INFO] [gateway.lua:353] Discovered and registered NEW device: mixed_device_001
+[2026-04-19 16:20:34] [INFO] [gateway.lua:385] Network topology built and registered
+[2026-04-19 16:20:34] [INFO] [gateway.lua:370] Network discovery completed, found 1 new devices, 3 total devices in list
+[2026-04-19 16:20:34] [DEBUG] [gateway.lua:315] Device discovery requested by: test_client, found 5 devices
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:213] 混合接口网络发现响应: - 5
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:214] 预期结果: 应只发现 1 个新设备 (mixed_device_001)，device_001 和 plc_device_001 已存在应被过滤
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:217] 
+=== 测试8: 检查拓扑构建 ===
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:219] 拓扑构建成功，设备数量: - 5
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:221]   设备: - plc_device_002
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:221]   设备: - device_001
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:221]   设备: - device_002
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:221]   设备: - plc_device_001
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:221]   设备: - mixed_device_001
+[2026-04-19 16:20:34] [INFO] [gateway.lua:389] Stopping gateway...
+[2026-04-19 16:20:34] [INFO] [test_device_discovery.lua:229] 
+=== 设备发现测试完成 ===
+[2026-04-19 16:30:58] [INFO] [test_real_interface_discovery.lua:11] === 测试真实接口的设备发现功能 ===
+[2026-04-19 16:30:58] [INFO] [test_real_interface_discovery.lua:17] 
+=== 测试 1: 初始化网关 ===
+[2026-04-19 16:31:19] [INFO] [test_real_interface_discovery.lua:11] === 测试真实接口的设备发现功能 ===
+[2026-04-19 16:31:19] [INFO] [test_real_interface_discovery.lua:17] 
+=== 测试 1: 初始化网关 ===
+[2026-04-19 16:31:19] [INFO] [gateway.lua:55] === Hybrid Gateway Initializing ===
+[2026-04-19 16:31:19] [INFO] [gateway.lua:97] Initializing interface: tcp_subnet1 (tcp)
+[2026-04-19 16:31:19] [INFO] [router_engine.lua:113] Interface registered: tcp_subnet1
+[2026-04-19 16:31:19] [INFO] [gateway.lua:113] Interface tcp_subnet1 connected successfully
+[2026-04-19 16:31:19] [INFO] [gateway.lua:97] Initializing interface: tcp_subnet2 (tcp)
+[2026-04-19 16:31:19] [INFO] [router_engine.lua:113] Interface registered: tcp_subnet2
+[2026-04-19 16:31:19] [INFO] [gateway.lua:113] Interface tcp_subnet2 connected successfully
+[2026-04-19 16:31:19] [INFO] [gateway.lua:97] Initializing interface: plc_device (plc)
+[2026-04-19 16:31:19] [INFO] [base_interface.lua:23] plc_device interface connected
+[2026-04-19 16:31:19] [INFO] [router_engine.lua:113] Interface registered: plc_device
+[2026-04-19 16:31:19] [INFO] [gateway.lua:113] Interface plc_device connected successfully
+[2026-04-19 16:31:19] [INFO] [router_engine.lua:165] Routing rule added: rule_tcp_subnet1 (priority: 100)
+[2026-04-19 16:31:19] [INFO] [router_engine.lua:165] Routing rule added: rule_plc (priority: 80)
+[2026-04-19 16:31:19] [INFO] [gateway.lua:69] === Gateway Initialized ===
+[2026-04-19 16:31:19] [INFO] [test_real_interface_discovery.lua:19] 网关初始化成功
+[2026-04-19 16:31:19] [INFO] [test_real_interface_discovery.lua:22] 
+=== 测试 2: TCP 接口设备发现 ===
+[2026-04-19 16:31:19] [INFO] [gateway.lua:333] Starting network discovery on interface: tcp_subnet1
+[2026-04-19 16:31:45] [INFO] [test_real_interface_discovery.lua:11] === 测试真实接口的设备发现功能 ===
+[2026-04-19 16:31:45] [INFO] [test_real_interface_discovery.lua:17] 
+=== 测试 1: 初始化网关 ===
+[2026-04-19 16:31:45] [INFO] [gateway.lua:55] === Hybrid Gateway Initializing ===
+[2026-04-19 16:31:45] [INFO] [gateway.lua:97] Initializing interface: tcp_subnet1 (tcp)
+[2026-04-19 16:31:45] [INFO] [router_engine.lua:113] Interface registered: tcp_subnet1
+[2026-04-19 16:31:45] [INFO] [gateway.lua:113] Interface tcp_subnet1 connected successfully
+[2026-04-19 16:31:45] [INFO] [gateway.lua:97] Initializing interface: tcp_subnet2 (tcp)
+[2026-04-19 16:31:45] [INFO] [router_engine.lua:113] Interface registered: tcp_subnet2
+[2026-04-19 16:31:45] [INFO] [gateway.lua:113] Interface tcp_subnet2 connected successfully
+[2026-04-19 16:31:45] [INFO] [gateway.lua:97] Initializing interface: plc_device (plc)
+[2026-04-19 16:31:45] [INFO] [base_interface.lua:23] plc_device interface connected
+[2026-04-19 16:31:45] [INFO] [router_engine.lua:113] Interface registered: plc_device
+[2026-04-19 16:31:45] [INFO] [gateway.lua:113] Interface plc_device connected successfully
+[2026-04-19 16:31:45] [INFO] [router_engine.lua:165] Routing rule added: rule_tcp_subnet1 (priority: 100)
+[2026-04-19 16:31:45] [INFO] [router_engine.lua:165] Routing rule added: rule_plc (priority: 80)
+[2026-04-19 16:31:45] [INFO] [gateway.lua:69] === Gateway Initialized ===
+[2026-04-19 16:31:45] [INFO] [test_real_interface_discovery.lua:19] 网关初始化成功
+[2026-04-19 16:31:45] [INFO] [test_real_interface_discovery.lua:22] 
+=== 测试 2: TCP 接口设备发现 ===
+[2026-04-19 16:31:45] [INFO] [gateway.lua:333] Starting network discovery on interface: tcp_subnet1
+[2026-04-19 16:31:45] [INFO] [tcp_interface.lua:54] Scanning TCP devices on tcp_subnet1
+[2026-04-19 16:31:45] [INFO] [router_engine.lua:585] Device registered: tcp_device_tcp_subnet1
+[2026-04-19 16:31:45] [INFO] [gateway.lua:353] Discovered and registered NEW device: tcp_device_tcp_subnet1
+[2026-04-19 16:31:45] [INFO] [router_engine.lua:585] Device registered: network_device_tcp_subnet1
+[2026-04-19 16:31:45] [INFO] [gateway.lua:353] Discovered and registered NEW device: network_device_tcp_subnet1
+[2026-04-19 16:31:45] [INFO] [gateway.lua:385] Network topology built and registered
+[2026-04-19 16:31:45] [INFO] [gateway.lua:370] Network discovery completed, found 2 new devices, 2 total devices in list
+[2026-04-19 16:31:45] [DEBUG] [gateway.lua:315] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:31:45] [INFO] [test_real_interface_discovery.lua:31] TCP 接口设备发现响应: - 2
+[2026-04-19 16:31:45] [INFO] [test_real_interface_discovery.lua:33]   设备 1:
+[2026-04-19 16:31:45] [INFO] [test_real_interface_discovery.lua:33]   设备 2:
+[2026-04-19 16:31:45] [INFO] [test_real_interface_discovery.lua:37] 
+=== 测试 3: PLC 接口设备发现 ===
+[2026-04-19 16:31:45] [ERROR] [gateway.lua:329] 接口未找到 - interface: plc_main
+[2026-04-19 16:31:45] [DEBUG] [gateway.lua:315] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:31:45] [INFO] [test_real_interface_discovery.lua:46] PLC 接口设备发现响应: - 2
+[2026-04-19 16:31:45] [INFO] [test_real_interface_discovery.lua:48]   设备 1:
+[2026-04-19 16:31:45] [INFO] [test_real_interface_discovery.lua:48]   设备 2:
+[2026-04-19 16:31:45] [INFO] [test_real_interface_discovery.lua:52] 
+=== 测试 4: 重复设备去重测试 ===
+[2026-04-19 16:31:45] [INFO] [gateway.lua:333] Starting network discovery on interface: tcp_subnet1
+[2026-04-19 16:31:45] [INFO] [tcp_interface.lua:54] Scanning TCP devices on tcp_subnet1
+[2026-04-19 16:31:45] [INFO] [router_engine.lua:585] Device registered: tcp_device_tcp_subnet1
+[2026-04-19 16:31:45] [DEBUG] [gateway.lua:355] Device tcp_device_tcp_subnet1 already registered, updating info
+[2026-04-19 16:31:45] [INFO] [router_engine.lua:585] Device registered: network_device_tcp_subnet1
+[2026-04-19 16:31:45] [DEBUG] [gateway.lua:355] Device network_device_tcp_subnet1 already registered, updating info
+[2026-04-19 16:31:45] [INFO] [gateway.lua:385] Network topology built and registered
+[2026-04-19 16:31:45] [INFO] [gateway.lua:370] Network discovery completed, found 0 new devices, 2 total devices in list
+[2026-04-19 16:31:45] [DEBUG] [gateway.lua:315] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:31:45] [INFO] [test_real_interface_discovery.lua:55] TCP 接口再次发现响应: - 2
+[2026-04-19 16:31:45] [INFO] [test_real_interface_discovery.lua:59] 
+=== 测试 5: 检查拓扑构建 ===
+[2026-04-19 16:31:45] [INFO] [test_real_interface_discovery.lua:61] 拓扑构建成功，设备数量: - 2
+[2026-04-19 16:31:45] [INFO] [test_real_interface_discovery.lua:63]   设备 1: - network_device_tcp_subnet1
+[2026-04-19 16:31:45] [INFO] [test_real_interface_discovery.lua:63]   设备 2: - tcp_device_tcp_subnet1
+[2026-04-19 16:31:45] [INFO] [test_real_interface_discovery.lua:70] 
+=== 测试 6: 停止网关 ===
+[2026-04-19 16:31:45] [INFO] [gateway.lua:389] Stopping gateway...
+[2026-04-19 16:31:45] [INFO] [test_real_interface_discovery.lua:72] 网关停止成功
+[2026-04-19 16:31:45] [INFO] [test_real_interface_discovery.lua:74] 
+=== 测试完成 ===
+[2026-04-19 16:53:29] [INFO] [test_real_interface_discovery.lua:11] === 测试真实接口的设备发现功能 ===
+[2026-04-19 16:53:29] [INFO] [test_real_interface_discovery.lua:17] 
+=== 测试 1: 初始化网关 ===
+[2026-04-19 16:53:29] [INFO] [gateway.lua:55] === Hybrid Gateway Initializing ===
+[2026-04-19 16:53:32] [INFO] [gateway.lua:97] Initializing interface: tcp_subnet1 (tcp)
+[2026-04-19 16:53:33] [INFO] [router_engine.lua:113] Interface registered: tcp_subnet1
+[2026-04-19 16:53:33] [INFO] [gateway.lua:113] Interface tcp_subnet1 connected successfully
+[2026-04-19 16:53:35] [INFO] [gateway.lua:97] Initializing interface: tcp_subnet2 (tcp)
+[2026-04-19 16:53:49] [INFO] [router_engine.lua:113] Interface registered: tcp_subnet2
+[2026-04-19 16:53:50] [INFO] [gateway.lua:113] Interface tcp_subnet2 connected successfully
+[2026-04-19 16:53:55] [INFO] [gateway.lua:97] Initializing interface: plc_device (plc)
+[2026-04-19 16:57:33] [INFO] [test_real_interface_discovery.lua:11] === 测试真实接口的设备发现功能 ===
+[2026-04-19 16:57:33] [INFO] [test_real_interface_discovery.lua:17] 
+=== 测试 1: 初始化网关 ===
+[2026-04-19 16:57:33] [INFO] [gateway.lua:55] === Hybrid Gateway Initializing ===
+[2026-04-19 16:57:33] [INFO] [gateway.lua:97] Initializing interface: tcp_subnet1 (tcp)
+[2026-04-19 16:57:33] [INFO] [tcp_interface.lua:10] [TCPInterface.new] Entry - name: tcp_subnet1
+[2026-04-19 16:57:33] [INFO] [tcp_interface.lua:15] [TCPInterface.new] Exit - created TCP interface: tcp_subnet1
+[2026-04-19 16:57:33] [INFO] [tcp_protocol_adapter.lua:9] [TCPProtocolAdapter.new] Entry - interface: tcp_subnet1
+[2026-04-19 16:57:33] [INFO] [tcp_protocol_adapter.lua:12] [TCPProtocolAdapter.new] Exit - created TCPProtocolAdapter
+[2026-04-19 16:57:33] [INFO] [tcp_interface.lua:20] [TCPInterface.connect] Entry - interface: tcp_subnet1
+[2026-04-19 16:57:33] [INFO] [tcp_interface.lua:46] [TCPInterface.connect] Exit - connected to 192.168.1.100:8888
+[2026-04-19 16:57:33] [INFO] [router_engine.lua:113] Interface registered: tcp_subnet1
+[2026-04-19 16:57:33] [INFO] [gateway.lua:113] Interface tcp_subnet1 connected successfully
+[2026-04-19 16:57:33] [INFO] [gateway.lua:97] Initializing interface: tcp_subnet2 (tcp)
+[2026-04-19 16:57:33] [INFO] [tcp_interface.lua:10] [TCPInterface.new] Entry - name: tcp_subnet2
+[2026-04-19 16:57:33] [INFO] [tcp_interface.lua:15] [TCPInterface.new] Exit - created TCP interface: tcp_subnet2
+[2026-04-19 16:57:33] [INFO] [tcp_protocol_adapter.lua:9] [TCPProtocolAdapter.new] Entry - interface: tcp_subnet2
+[2026-04-19 16:57:33] [INFO] [tcp_protocol_adapter.lua:12] [TCPProtocolAdapter.new] Exit - created TCPProtocolAdapter
+[2026-04-19 16:57:33] [INFO] [tcp_interface.lua:20] [TCPInterface.connect] Entry - interface: tcp_subnet2
+[2026-04-19 16:57:33] [INFO] [tcp_interface.lua:46] [TCPInterface.connect] Exit - connected to 192.168.2.100:8889
+[2026-04-19 16:57:33] [INFO] [router_engine.lua:113] Interface registered: tcp_subnet2
+[2026-04-19 16:57:33] [INFO] [gateway.lua:113] Interface tcp_subnet2 connected successfully
+[2026-04-19 16:57:33] [INFO] [gateway.lua:97] Initializing interface: plc_device (plc)
+[2026-04-19 16:57:33] [INFO] [plc_interface.lua:12] [PLCInterface.new] Entry - name: plc_device
+[2026-04-19 16:57:33] [INFO] [plc_interface.lua:19] [PLCInterface.new] Exit - created PLC interface: plc_device
+[2026-04-19 16:57:33] [INFO] [plc_protocol_adapter.lua:12] [PLCProtocolAdapter.new] Entry - interface: plc_device
+[2026-04-19 16:57:33] [INFO] [plc_protocol_adapter.lua:17] [PLCProtocolAdapter.new] Exit - created PLCProtocolAdapter
+[2026-04-19 16:57:33] [INFO] [base_interface.lua:23] plc_device interface connected
+[2026-04-19 16:57:33] [INFO] [router_engine.lua:113] Interface registered: plc_device
+[2026-04-19 16:57:33] [INFO] [gateway.lua:113] Interface plc_device connected successfully
+[2026-04-19 16:57:33] [INFO] [router_engine.lua:165] Routing rule added: rule_tcp_subnet1 (priority: 100)
+[2026-04-19 16:57:33] [INFO] [router_engine.lua:165] Routing rule added: rule_plc (priority: 80)
+[2026-04-19 16:57:33] [INFO] [gateway.lua:69] === Gateway Initialized ===
+[2026-04-19 16:57:33] [INFO] [test_real_interface_discovery.lua:19] 网关初始化成功
+[2026-04-19 16:57:33] [INFO] [test_real_interface_discovery.lua:22] 
+=== 测试 2: TCP 接口设备发现 ===
+[2026-04-19 16:57:33] [INFO] [gateway.lua:333] Starting network discovery on interface: tcp_subnet1
+[2026-04-19 16:57:33] [INFO] [tcp_interface.lua:63] [TCPInterface.scan_devices] Entry - interface: tcp_subnet1
+[2026-04-19 16:57:33] [INFO] [tcp_interface.lua:64] Scanning TCP devices on tcp_subnet1
+[2026-04-19 16:57:33] [INFO] [tcp_interface.lua:83] [TCPInterface.scan_devices] Exit - found 2 devices
+[2026-04-19 16:57:33] [INFO] [router_engine.lua:585] Device registered: tcp_device_tcp_subnet1
+[2026-04-19 16:57:33] [INFO] [gateway.lua:353] Discovered and registered NEW device: tcp_device_tcp_subnet1
+[2026-04-19 16:57:33] [INFO] [router_engine.lua:585] Device registered: network_device_tcp_subnet1
+[2026-04-19 16:57:33] [INFO] [gateway.lua:353] Discovered and registered NEW device: network_device_tcp_subnet1
+[2026-04-19 16:57:33] [INFO] [gateway.lua:385] Network topology built and registered
+[2026-04-19 16:57:33] [INFO] [gateway.lua:370] Network discovery completed, found 2 new devices, 2 total devices in list
+[2026-04-19 16:57:33] [DEBUG] [gateway.lua:315] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:57:33] [INFO] [test_real_interface_discovery.lua:31] TCP 接口设备发现响应: - 2
+[2026-04-19 16:57:33] [INFO] [test_real_interface_discovery.lua:33]   设备 1:
+[2026-04-19 16:57:33] [INFO] [test_real_interface_discovery.lua:33]   设备 2:
+[2026-04-19 16:57:33] [INFO] [test_real_interface_discovery.lua:37] 
+=== 测试 3: PLC 接口设备发现 ===
+[2026-04-19 16:57:33] [ERROR] [gateway.lua:329] 接口未找到 - interface: plc_main
+[2026-04-19 16:57:33] [DEBUG] [gateway.lua:315] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:57:33] [INFO] [test_real_interface_discovery.lua:46] PLC 接口设备发现响应: - 2
+[2026-04-19 16:57:33] [INFO] [test_real_interface_discovery.lua:48]   设备 1:
+[2026-04-19 16:57:33] [INFO] [test_real_interface_discovery.lua:48]   设备 2:
+[2026-04-19 16:57:33] [INFO] [test_real_interface_discovery.lua:52] 
+=== 测试 4: 重复设备去重测试 ===
+[2026-04-19 16:57:33] [INFO] [gateway.lua:333] Starting network discovery on interface: tcp_subnet1
+[2026-04-19 16:57:33] [INFO] [tcp_interface.lua:63] [TCPInterface.scan_devices] Entry - interface: tcp_subnet1
+[2026-04-19 16:57:33] [INFO] [tcp_interface.lua:64] Scanning TCP devices on tcp_subnet1
+[2026-04-19 16:57:33] [INFO] [tcp_interface.lua:83] [TCPInterface.scan_devices] Exit - found 2 devices
+[2026-04-19 16:57:33] [INFO] [router_engine.lua:585] Device registered: tcp_device_tcp_subnet1
+[2026-04-19 16:57:33] [DEBUG] [gateway.lua:355] Device tcp_device_tcp_subnet1 already registered, updating info
+[2026-04-19 16:57:33] [INFO] [router_engine.lua:585] Device registered: network_device_tcp_subnet1
+[2026-04-19 16:57:33] [DEBUG] [gateway.lua:355] Device network_device_tcp_subnet1 already registered, updating info
+[2026-04-19 16:57:33] [INFO] [gateway.lua:385] Network topology built and registered
+[2026-04-19 16:57:33] [INFO] [gateway.lua:370] Network discovery completed, found 0 new devices, 2 total devices in list
+[2026-04-19 16:57:33] [DEBUG] [gateway.lua:315] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:57:33] [INFO] [test_real_interface_discovery.lua:55] TCP 接口再次发现响应: - 2
+[2026-04-19 16:57:33] [INFO] [test_real_interface_discovery.lua:59] 
+=== 测试 5: 检查拓扑构建 ===
+[2026-04-19 16:57:33] [INFO] [test_real_interface_discovery.lua:61] 拓扑构建成功，设备数量: - 2
+[2026-04-19 16:57:33] [INFO] [test_real_interface_discovery.lua:63]   设备 1: - tcp_device_tcp_subnet1
+[2026-04-19 16:57:33] [INFO] [test_real_interface_discovery.lua:63]   设备 2: - network_device_tcp_subnet1
+[2026-04-19 16:57:33] [INFO] [test_real_interface_discovery.lua:70] 
+=== 测试 6: 停止网关 ===
+[2026-04-19 16:57:33] [INFO] [gateway.lua:389] Stopping gateway...
+[2026-04-19 16:57:33] [INFO] [test_real_interface_discovery.lua:72] 网关停止成功
+[2026-04-19 16:57:33] [INFO] [test_real_interface_discovery.lua:74] 
+=== 测试完成 ===
+[2026-04-19 16:59:05] [INFO] [test_real_interface_discovery.lua:11] === 测试真实接口的设备发现功能 ===
+[2026-04-19 16:59:05] [INFO] [test_real_interface_discovery.lua:17] 
+=== 测试 1: 初始化网关 ===
+[2026-04-19 16:59:05] [INFO] [gateway.lua:55] === Hybrid Gateway Initializing ===
+[2026-04-19 16:59:05] [INFO] [gateway.lua:97] Initializing interface: tcp_subnet1 (tcp)
+[2026-04-19 16:59:05] [INFO] [tcp_interface.lua:10] [TCPInterface.new] Entry - name: tcp_subnet1
+[2026-04-19 16:59:05] [INFO] [tcp_interface.lua:15] [TCPInterface.new] Exit - created TCP interface: tcp_subnet1
+[2026-04-19 16:59:05] [INFO] [tcp_protocol_adapter.lua:9] [TCPProtocolAdapter.new] Entry - interface: tcp_subnet1
+[2026-04-19 16:59:05] [INFO] [tcp_protocol_adapter.lua:12] [TCPProtocolAdapter.new] Exit - created TCPProtocolAdapter
+[2026-04-19 16:59:05] [INFO] [tcp_interface.lua:20] [TCPInterface.connect] Entry - interface: tcp_subnet1
+[2026-04-19 16:59:05] [INFO] [tcp_interface.lua:46] [TCPInterface.connect] Exit - connected to 192.168.1.100:8888
+[2026-04-19 16:59:05] [INFO] [router_engine.lua:113] Interface registered: tcp_subnet1
+[2026-04-19 16:59:05] [INFO] [gateway.lua:113] Interface tcp_subnet1 connected successfully
+[2026-04-19 16:59:05] [INFO] [gateway.lua:97] Initializing interface: tcp_subnet2 (tcp)
+[2026-04-19 16:59:05] [INFO] [tcp_interface.lua:10] [TCPInterface.new] Entry - name: tcp_subnet2
+[2026-04-19 16:59:05] [INFO] [tcp_interface.lua:15] [TCPInterface.new] Exit - created TCP interface: tcp_subnet2
+[2026-04-19 16:59:05] [INFO] [tcp_protocol_adapter.lua:9] [TCPProtocolAdapter.new] Entry - interface: tcp_subnet2
+[2026-04-19 16:59:05] [INFO] [tcp_protocol_adapter.lua:12] [TCPProtocolAdapter.new] Exit - created TCPProtocolAdapter
+[2026-04-19 16:59:05] [INFO] [tcp_interface.lua:20] [TCPInterface.connect] Entry - interface: tcp_subnet2
+[2026-04-19 16:59:05] [INFO] [tcp_interface.lua:46] [TCPInterface.connect] Exit - connected to 192.168.2.100:8889
+[2026-04-19 16:59:05] [INFO] [router_engine.lua:113] Interface registered: tcp_subnet2
+[2026-04-19 16:59:05] [INFO] [gateway.lua:113] Interface tcp_subnet2 connected successfully
+[2026-04-19 16:59:05] [INFO] [gateway.lua:97] Initializing interface: plc_device (plc)
+[2026-04-19 16:59:05] [INFO] [plc_interface.lua:12] [PLCInterface.new] Entry - name: plc_device
+[2026-04-19 16:59:05] [INFO] [plc_interface.lua:19] [PLCInterface.new] Exit - created PLC interface: plc_device
+[2026-04-19 16:59:05] [INFO] [plc_protocol_adapter.lua:12] [PLCProtocolAdapter.new] Entry - interface: plc_device
+[2026-04-19 16:59:05] [INFO] [plc_protocol_adapter.lua:17] [PLCProtocolAdapter.new] Exit - created PLCProtocolAdapter
+[2026-04-19 16:59:05] [INFO] [base_interface.lua:23] plc_device interface connected
+[2026-04-19 16:59:05] [INFO] [router_engine.lua:113] Interface registered: plc_device
+[2026-04-19 16:59:05] [INFO] [gateway.lua:113] Interface plc_device connected successfully
+[2026-04-19 16:59:05] [INFO] [router_engine.lua:165] Routing rule added: rule_tcp_subnet1 (priority: 100)
+[2026-04-19 16:59:05] [INFO] [router_engine.lua:165] Routing rule added: rule_plc (priority: 80)
+[2026-04-19 16:59:05] [INFO] [gateway.lua:69] === Gateway Initialized ===
+[2026-04-19 16:59:05] [INFO] [test_real_interface_discovery.lua:19] 网关初始化成功
+[2026-04-19 16:59:05] [INFO] [test_real_interface_discovery.lua:22] 
+=== 测试 2: TCP 接口设备发现 ===
+[2026-04-19 16:59:05] [INFO] [gateway.lua:333] Starting network discovery on interface: tcp_subnet1
+[2026-04-19 16:59:05] [INFO] [tcp_interface.lua:63] [TCPInterface.scan_devices] Entry - interface: tcp_subnet1
+[2026-04-19 16:59:05] [INFO] [tcp_interface.lua:64] Scanning TCP devices on tcp_subnet1
+[2026-04-19 16:59:05] [INFO] [tcp_interface.lua:83] [TCPInterface.scan_devices] Exit - found 2 devices
+[2026-04-19 16:59:05] [INFO] [router_engine.lua:585] Device registered: tcp_device_tcp_subnet1
+[2026-04-19 16:59:05] [INFO] [gateway.lua:353] Discovered and registered NEW device: tcp_device_tcp_subnet1
+[2026-04-19 16:59:05] [INFO] [router_engine.lua:585] Device registered: network_device_tcp_subnet1
+[2026-04-19 16:59:05] [INFO] [gateway.lua:353] Discovered and registered NEW device: network_device_tcp_subnet1
+[2026-04-19 16:59:05] [INFO] [gateway.lua:385] Network topology built and registered
+[2026-04-19 16:59:05] [INFO] [gateway.lua:370] Network discovery completed, found 2 new devices, 2 total devices in list
+[2026-04-19 16:59:05] [DEBUG] [gateway.lua:315] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:59:05] [INFO] [test_real_interface_discovery.lua:31] TCP 接口设备发现响应: - 2
+[2026-04-19 16:59:05] [INFO] [test_real_interface_discovery.lua:33]   设备 1:
+[2026-04-19 16:59:05] [INFO] [test_real_interface_discovery.lua:33]   设备 2:
+[2026-04-19 16:59:05] [INFO] [test_real_interface_discovery.lua:37] 
+=== 测试 3: PLC 接口设备发现 ===
+[2026-04-19 16:59:05] [ERROR] [gateway.lua:329] 接口未找到 - interface: plc_main
+[2026-04-19 16:59:05] [DEBUG] [gateway.lua:315] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:59:05] [INFO] [test_real_interface_discovery.lua:46] PLC 接口设备发现响应: - 2
+[2026-04-19 16:59:05] [INFO] [test_real_interface_discovery.lua:48]   设备 1:
+[2026-04-19 16:59:05] [INFO] [test_real_interface_discovery.lua:48]   设备 2:
+[2026-04-19 16:59:05] [INFO] [test_real_interface_discovery.lua:52] 
+=== 测试 4: 重复设备去重测试 ===
+[2026-04-19 16:59:05] [INFO] [gateway.lua:333] Starting network discovery on interface: tcp_subnet1
+[2026-04-19 16:59:05] [INFO] [tcp_interface.lua:63] [TCPInterface.scan_devices] Entry - interface: tcp_subnet1
+[2026-04-19 16:59:05] [INFO] [tcp_interface.lua:64] Scanning TCP devices on tcp_subnet1
+[2026-04-19 16:59:05] [INFO] [tcp_interface.lua:83] [TCPInterface.scan_devices] Exit - found 2 devices
+[2026-04-19 16:59:05] [INFO] [router_engine.lua:585] Device registered: tcp_device_tcp_subnet1
+[2026-04-19 16:59:05] [DEBUG] [gateway.lua:355] Device tcp_device_tcp_subnet1 already registered, updating info
+[2026-04-19 16:59:05] [INFO] [router_engine.lua:585] Device registered: network_device_tcp_subnet1
+[2026-04-19 16:59:05] [DEBUG] [gateway.lua:355] Device network_device_tcp_subnet1 already registered, updating info
+[2026-04-19 16:59:05] [INFO] [gateway.lua:385] Network topology built and registered
+[2026-04-19 16:59:05] [INFO] [gateway.lua:370] Network discovery completed, found 0 new devices, 2 total devices in list
+[2026-04-19 16:59:05] [DEBUG] [gateway.lua:315] Device discovery requested by: test_client, found 2 devices
+[2026-04-19 16:59:05] [INFO] [test_real_interface_discovery.lua:55] TCP 接口再次发现响应: - 2
+[2026-04-19 16:59:05] [INFO] [test_real_interface_discovery.lua:59] 
+=== 测试 5: 检查拓扑构建 ===
+[2026-04-19 16:59:05] [INFO] [test_real_interface_discovery.lua:61] 拓扑构建成功，设备数量: - 2
+[2026-04-19 16:59:05] [INFO] [test_real_interface_discovery.lua:63]   设备 1: - network_device_tcp_subnet1
+[2026-04-19 16:59:05] [INFO] [test_real_interface_discovery.lua:63]   设备 2: - tcp_device_tcp_subnet1
+[2026-04-19 16:59:05] [INFO] [test_real_interface_discovery.lua:70] 
+=== 测试 6: 停止网关 ===
+[2026-04-19 16:59:05] [INFO] [gateway.lua:389] Stopping gateway...
+[2026-04-19 16:59:05] [INFO] [test_real_interface_discovery.lua:72] 网关停止成功
+[2026-04-19 16:59:05] [INFO] [test_real_interface_discovery.lua:74] 
+=== 测试完成 ===

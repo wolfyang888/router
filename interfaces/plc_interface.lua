@@ -3,90 +3,26 @@
 -- 实现PLC设备的通信接口，支持任意路由
 
 local BaseInterface = require("interfaces.base_interface")
+local log = require("utils.logger")
 
 local PLCInterface = setmetatable({}, BaseInterface)
 PLCInterface.__index = PLCInterface
 
 function PLCInterface.new(name, config)
+    log.info("[PLCInterface.new] Entry - name: " .. tostring(name))
     local self = BaseInterface.new(name, config)
     setmetatable(self, PLCInterface)
     self.type = "plc"
     self.protocol = config.protocol or "plc"
     self.address = config.address or "localhost"
     self.port = config.port or 8888
-    self.timeout = config.timeout or 5
-    self.handler = config.handler
-    self.buffer = {}
+    log.info("[PLCInterface.new] Exit - created PLC interface: " .. self.name)
     return self
 end
 
-function PLCInterface:connect()
-    if self.handler and self.handler.connect then
-        local success, err = self.handler.connect(self)
-        if success then
-            self.status = "connected"
-            return true
-        else
-            self.status = "error"
-            self.error_msg = err
-            return false
-        end
-    else
-        -- 模拟连接成功
-        self.status = "connected"
-        return true
-    end
-end
-
-function PLCInterface:disconnect()
-    if self.handler and self.handler.disconnect then
-        local success = self.handler.disconnect(self)
-        if success then
-            self.status = "disconnected"
-            return true
-        else
-            return false
-        end
-    else
-        self.status = "disconnected"
-        return true
-    end
-end
-
-function PLCInterface:send(data, timeout)
-    if self.status ~= "connected" then
-        self.status = "error"
-        return false
-    end
-
-    if self.handler and self.handler.send then
-        return self.handler.send(self, data, timeout or self.timeout)
-    else
-        -- 模拟发送成功
-        table.insert(self.buffer, data)
-        return true
-    end
-end
-
-function PLCInterface:receive(timeout)
-    if self.status ~= "connected" then
-        self.status = "error"
-        return nil
-    end
-
-    if self.handler and self.handler.receive then
-        return self.handler.receive(self, timeout or self.timeout)
-    else
-        -- 模拟接收数据
-        if #self.buffer > 0 then
-            return table.remove(self.buffer, 1)
-        end
-        return nil
-    end
-end
-
 function PLCInterface:get_status()
-    return {
+    log.debug("[PLCInterface.get_status] Entry - interface: " .. self.name)
+    local status = {
         type = self.type,
         name = self.name,
         status = self.status,
@@ -95,6 +31,46 @@ function PLCInterface:get_status()
         port = self.port,
         protocol = self.protocol
     }
+    log.debug("[PLCInterface.get_status] Exit - status: " .. status.status)
+    return status
+end
+
+function PLCInterface:scan_devices()
+    log.info("[PLCInterface.scan_devices] Entry - interface: " .. self.name)
+    log.info("Scanning PLC devices on " .. self.name)
+    
+    -- 通过协议适配器发送发现请求
+    if self.adapter and self.adapter.send_message then
+        local discovery_message = {
+            type = "discovery",
+            command = "scan",
+            timestamp = os.time()
+        }
+        log.info("[PLCInterface.scan_devices] Sending discovery request")
+        self.adapter:send_message(discovery_message)
+    end
+    
+    -- 模拟 PLC 设备发现
+    local devices = {
+        {
+            id = "plc_device_" .. self.name,
+            name = "PLC Controller",
+            type = "plc",
+            interfaces = {"plc"},
+            address = self.address,
+            port = self.port
+        },
+        {
+            id = "hmi_device_" .. self.name,
+            name = "HMI Panel",
+            type = "hmi",
+            interfaces = {"plc"},
+            address = self.address,
+            port = self.port + 1
+        }
+    }
+    log.info("[PLCInterface.scan_devices] Exit - found " .. #devices .. " devices")
+    return devices
 end
 
 return PLCInterface

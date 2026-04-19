@@ -542,7 +542,7 @@ function RouterEngine:forward_to_device(message, src_device, dst_device)
 
     if #materialized > 0 then
         local first_hop = materialized[1]
-        Error.info(string.format(
+        log.info(string.format(
             "Forwarding message: %s -> %s via %s",
             first_hop.src_addr, first_hop.dst_addr, first_hop.protocol
         ))
